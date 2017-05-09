@@ -14,8 +14,8 @@ public class MainActivity extends Activity {
     }
 
     protected void startQuest(View view){
-        //Intent intent = new Intent(this, LevelselectActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, ChooseWorld.class);
+        startActivity(intent);
     }
     protected void showCharacter(View view){
         //Intent intent = new Intent(this, CharacterActivity.class);
