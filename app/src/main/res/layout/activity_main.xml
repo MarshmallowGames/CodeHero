@@ -1,18 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.zeltr.codehero.MainActivity">
 
+    <ImageView
+        android:background="@drawable/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/imgStartQuest"
+        android:src="@drawable/button"
+        android:layout_width="257dp"
+        android:layout_height="69dp"
+        tools:layout_editor_absoluteY="412dp"
+        tools:layout_editor_absoluteX="64dp"
+        android:layout_marginBottom="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/imgSocialize" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignLeft="@id/imgStartQuest"
+        android:layout_alignTop="@id/imgStartQuest"
+        android:layout_alignRight="@id/imgStartQuest"
+        android:layout_alignBottom="@id/imgStartQuest"
+        android:text="Start Quest"
+    android:gravity="center" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imgCharacter"
+        android:layout_width="257dp"
+        android:layout_height="69dp"
+        android:src="@drawable/button"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="412dp"
+        android:layout_marginBottom="91dp"
+        android:layout_above="@+id/imgSocialize"
+        android:layout_alignStart="@+id/imgAchievement" />
+
+    <ImageView
+        android:id="@+id/imgSocialize"
+        android:layout_width="257dp"
+        android:layout_height="69dp"
+        android:src="@drawable/button"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="412dp"
+        android:layout_above="@+id/imgStartQuest"
+        android:layout_alignStart="@+id/imgAchievement"
+        android:layout_marginBottom="39dp" />
+
+    <ImageView
+        android:id="@+id/imgAchievement"
+        android:layout_width="257dp"
+        android:layout_height="69dp"
+        android:src="@drawable/button"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="412dp"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/imgSocialize"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
