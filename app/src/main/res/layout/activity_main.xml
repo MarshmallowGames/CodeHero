@@ -32,7 +32,7 @@
         android:layout_alignRight="@id/imgStartQuest"
         android:layout_alignBottom="@id/imgStartQuest"
         android:text="Start Quest"
-    android:gravity="center" />
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/imgCharacter"
