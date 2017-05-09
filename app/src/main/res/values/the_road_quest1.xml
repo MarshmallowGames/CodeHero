@@ -1,0 +1,7 @@
+<resources>
+    <string name="theRoadQuest1desc">You walk down a long road.
+        After walking for some time you meet a farmer standing by the road.
+        Greet him by saying "Hello farmer".
+    </string>
+    <string name="theRoadQuest1tip1">Tip: In Java you can print strings(text) with System.out.println(\"your text\");</string>
+</resources>
