@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TheRoad" />
-        <activity android:name=".ChooseWorld"></activity>
+        <activity android:name=".ChooseWorld" />
     </application>
 
 </manifest>
