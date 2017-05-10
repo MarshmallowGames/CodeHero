@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.zeltr.codehero.Persistence.DBHandler;
 
 public class ChooseWorld extends Activity {
 
@@ -12,6 +16,12 @@ public class ChooseWorld extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_world);
+
+        DBHandler db = new DBHandler(this);
+        if(db.checkQuestCompletion()){
+            ImageView imageView = (ImageView) findViewById(R.id.lock1);
+            imageView.setVisibility(View.GONE);
+       }
     }
 
     protected void startTheRoad(View view){
