@@ -44,7 +44,10 @@ public class DBHandler extends SQLiteOpenHelper {
             + "userId INTEGER, "
             + "questId INTEGER, "
             + "worldId INTEGER, "
-            + "completed BOOLEAN)";
+            + "completed BOOLEAN, "
+            + "FOREIGN KEY(userId) REFERENCES user(id), "
+            + "FOREIGN KEY(questId) REFERENCES quests(id), "
+            + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
