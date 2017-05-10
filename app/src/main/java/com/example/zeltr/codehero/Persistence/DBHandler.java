@@ -79,7 +79,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean checkQuestCompletion() {
         SQLiteDatabase db = this.getReadableDatabase();
-        String query =  "SELECT firstName FROM user";
+        String query =  "";
 
         Cursor cursor = db.rawQuery(query, null);
         // test = "";
