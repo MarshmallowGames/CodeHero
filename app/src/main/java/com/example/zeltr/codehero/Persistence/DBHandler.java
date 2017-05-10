@@ -1,6 +1,7 @@
 package com.example.zeltr.codehero.Persistence;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -47,7 +48,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        context.deleteDatabase("codeHeroDB");
+        //context.deleteDatabase("codeHeroDB");
         this.getWritableDatabase();
     }
 
@@ -71,6 +72,23 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public boolean checkQuestCompletion() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query =  "SELECT firstName FROM user";
+
+        Cursor cursor = db.rawQuery(query, null);
+        // test = "";
+
+        if (cursor.moveToFirst()) {
+            //test = cursor.getString(cursor.getColumnIndex("firstName"));
+        }
+
+        cursor.close();
+        db.close();
+
+        return false;
     }
 
 }
