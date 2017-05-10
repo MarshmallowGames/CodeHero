@@ -1,10 +1,12 @@
 package com.example.zeltr.codehero;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class TheRoad extends AppCompatActivity {
+public class TheRoad extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,8 +15,8 @@ public class TheRoad extends AppCompatActivity {
     }
 
     protected void startQuest1(View view){
-        //Intent intent = new Intent(this, TheRoad1Activity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, TheRoadQuest1.class);
+        startActivity(intent);
     }
 
     protected void startQuest2(View view){
