@@ -28,7 +28,6 @@ public class ChooseWorld extends Activity {
         Intent intent = new Intent(this, TheRoad.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
-
     }
 
     protected void startTheForest(View view){
