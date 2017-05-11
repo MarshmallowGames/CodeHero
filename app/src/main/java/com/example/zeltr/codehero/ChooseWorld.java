@@ -18,7 +18,8 @@ public class ChooseWorld extends Activity {
         setContentView(R.layout.activity_choose_world);
 
         DBHandler db = new DBHandler(this);
-        if(db.isQuestComplete(1, 4)){
+
+        if(db.isQuestComplete(1, 4, 1)){
             ImageView imageView = (ImageView) findViewById(R.id.lock1);
             imageView.setVisibility(View.GONE);
        }
