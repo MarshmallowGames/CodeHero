@@ -10,13 +10,13 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "codeHeroDB";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS user ("
+    private static final String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS users ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "firstName VARCHAR(255), "
             + "lastName VARCHAR(255), "
             + "userName VARCHAR(255), "
             + "email VARCHAR(255))";
-    private static final String INSERT_INTO_USER_TABLE = "INSERT INTO user (firstName, lastName, userName, email) "
+    private static final String INSERT_INTO_USER_TABLE = "INSERT INTO users (firstName, lastName, userName, email) "
             + "VALUES ('Dennis', 'Mikkelsen', 'Zeltres', 'Zeltres@hotmail.com')";
 
     private static final String CREATE_WORLD_TABLE = "CREATE TABLE IF NOT EXISTS worlds ("
@@ -39,7 +39,7 @@ public class DBHandler extends SQLiteOpenHelper {
             + "questId INTEGER, "
             + "worldId INTEGER, "
             + "completed BOOLEAN, "
-            + "FOREIGN KEY(userId) REFERENCES user(id), "
+            + "FOREIGN KEY(userId) REFERENCES users(id), "
             + "FOREIGN KEY(questId) REFERENCES quests(id), "
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
 
