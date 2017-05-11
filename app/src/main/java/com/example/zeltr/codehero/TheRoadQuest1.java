@@ -1,10 +1,12 @@
 package com.example.zeltr.codehero;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class TheRoadQuest1 extends AppCompatActivity {
+public class TheRoadQuest1 extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
