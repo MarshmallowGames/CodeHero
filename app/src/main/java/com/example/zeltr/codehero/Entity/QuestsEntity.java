@@ -5,6 +5,7 @@ public class QuestsEntity {
     private int id;
     private String name;
     private int worldID;
+    private boolean completed;
 
     public int getId() {
         return id;
@@ -29,5 +30,9 @@ public class QuestsEntity {
     public void setWorldID(int worldID) {
         this.worldID = worldID;
     }
+
+    public void setCompleted(boolean completed) { this.completed = completed; }
+
+    public boolean isCompleted() { return completed; }
 
 }
