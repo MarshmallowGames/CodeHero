@@ -18,8 +18,8 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
     protected void showCharacter(View view){
-        //Intent intent = new Intent(this, CharacterActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, Character.class);
+        startActivity(intent);
     }
     protected void socialize(View view){
         //Intent intent = new Intent(this, SocializeActivity.class);

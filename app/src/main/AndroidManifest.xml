@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".TheRoad" />
         <activity android:name=".ChooseWorld" />
+        <activity android:name=".FragmentQuestDescription" />
+        <activity android:name=".Character"></activity>
     </application>
 
 </manifest>
