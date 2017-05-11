@@ -78,6 +78,7 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public boolean isQuestComplete(int worldId, int questId) {
+        /*
         SQLiteDatabase db = this.getReadableDatabase();
         String query =  "";
 
@@ -90,7 +91,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         cursor.close();
         db.close();
-
+        */
         return false;
     }
 
