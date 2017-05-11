@@ -43,8 +43,33 @@ public class DBHandler extends SQLiteOpenHelper {
             + "FOREIGN KEY(questId) REFERENCES quests(id), "
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
 
-    private static final String INSERT_USER_QUESTS1 = "INSERT INTO userQuests (userId, questId, worldId, completed) "
+    private static final String INSERT_USER_QUESTS = "INSERT INTO userQuests (userId, questId, worldId, completed) "
             + "VALUES (1, 1, 1, 0), (1, 2, 1, 0), (1, 3, 1, 0), (1, 4, 1, 0)";
+
+    private static final String CREATE_TIPS_TABLE = "CREATE TABLE IF NOT EXISTS tips ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "content VARCHAR(255), "
+            + "questId INTEGER, "
+            + "FOREIGN KEY(questId) REFERENCES quests(id))";
+
+    private static final String CREATE_TASKS_TABLE = "CREATE TABLE IF NOT EXISTS tasks ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "content VARCHAR(255), "
+            + "worldId INTEGER, "
+            + "answer VARCHAR(500), "
+            + "description VARCHAR(500), "
+            + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
+
+    private static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "userId INTEGER, "
+            + "category VARCHAR(255), "
+            + "FOREIGN KEY(userId) REFERENCES user(id))";
+
+    private static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "userId INTEGER, "
+            + "FOREIGN KEY(userId) REFERENCES user(id))";
 
     public DBHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -65,7 +90,15 @@ public class DBHandler extends SQLiteOpenHelper {
             db.execSQL(INSERT_QUESTS);
 
             db.execSQL(CREATE_USER_QUESTS_TABLE);
-            db.execSQL(INSERT_USER_QUESTS1);
+            db.execSQL(INSERT_USER_QUESTS);
+
+            db.execSQL(CREATE_TIPS_TABLE);
+
+            db.execSQL(CREATE_TASKS_TABLE);
+
+            db.execSQL(CREATE_ITEMS_TABLE);
+
+            db.execSQL(CREATE_USER_ITEMS_TABLE);
         }
     }
 
