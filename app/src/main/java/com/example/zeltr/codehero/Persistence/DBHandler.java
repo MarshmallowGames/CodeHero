@@ -69,6 +69,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "userId INTEGER, "
+            + "isActive BOOLEAN, "
             + "FOREIGN KEY(userId) REFERENCES user(id))";
 
     public DBHandler(Context context) {
