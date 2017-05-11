@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="itemDescription">Item in table</string>
+    <string name="character">A character for gear showcase</string>
+    <string name="leftHand">A slot for weapons</string>
+    <string name="rightHand">A slot for offhand equipment</string>
+
+
+</resources>

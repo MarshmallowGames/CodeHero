@@ -17,7 +17,7 @@ public class Character extends Activity {
         String item = view.toString();
 
 /*
-        switch(){
+        switch(category){
             case "weapon":
                 View leftHand = findViewById(R.id.leftHand);
                 break;
