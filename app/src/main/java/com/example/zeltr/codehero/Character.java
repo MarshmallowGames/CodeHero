@@ -15,8 +15,22 @@ public class Character extends Activity {
 
     protected void equipItem(View view){
         String item = view.toString();
-        View leftHand = findViewById(R.id.leftHand);
-        View rightHand = findViewById(R.id.rightHand);
+
+/*
+        switch(){
+            case "weapon":
+                View leftHand = findViewById(R.id.leftHand);
+                break;
+            case "offhand":
+                View rightHand = findViewById(R.id.rightHand);
+                break;
+            case "armor":
+                View character = findViewById(R.id.character);
+
+        }
+
+*/
+
     }
 
     /*public View getItemFromDB(){
