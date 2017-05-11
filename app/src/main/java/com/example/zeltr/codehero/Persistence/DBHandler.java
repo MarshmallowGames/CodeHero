@@ -77,7 +77,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public boolean checkQuestCompletion() {
+    public boolean isQuestComplete(int worldId, int questId) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query =  "";
 
