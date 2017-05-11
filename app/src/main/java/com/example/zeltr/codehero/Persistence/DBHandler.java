@@ -7,9 +7,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHandler extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "codeHeroDB";
-    private static final int DATABASE_VERSION = 1;
-
     private static final String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS users ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "firstName VARCHAR(255), "
@@ -27,7 +24,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private static final String CREATE_QUEST_TABLE = "CREATE TABLE IF NOT EXISTS quests ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "name VARCHAR(255), "
+            + "story VARCHAR(255), "
             + "worldID INTEGER, "
             + "FOREIGN KEY(worldID) REFERENCES worlds(id))";
     private static final String INSERT_QUESTS = "INSERT INTO quests (name, worldID) "
@@ -73,8 +70,7 @@ public class DBHandler extends SQLiteOpenHelper {
             + "FOREIGN KEY(userId) REFERENCES user(id))";
 
     public DBHandler(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        //context.deleteDatabase("codeHeroDB");
+        super(context, DBInfo.DATABASE_NAME, null, DBInfo.DATABASE_VERSION);
         this.getWritableDatabase();
     }
 

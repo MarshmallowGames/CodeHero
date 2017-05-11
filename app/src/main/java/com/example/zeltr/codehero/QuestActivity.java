@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
+
+import com.example.zeltr.codehero.Entity.QuestEntity;
+import com.example.zeltr.codehero.Persistence.QuestRepository;
 
 public class QuestActivity extends Activity {
 
@@ -18,6 +22,16 @@ public class QuestActivity extends Activity {
         worldId = intent.getIntExtra("worldId", 1);
         userId = intent.getIntExtra("userId", 1);
         questId = intent.getIntExtra("questId", 1);
+
+        QuestRepository questRepo = new QuestRepository(this);
+
+        QuestEntity quest = questRepo.fetchQuestById(questId);
+
+        TextView story = (TextView) findViewById(R.id.questStory);
+        TextView tip = (TextView) findViewById(R.id.questTip);
+
+        story.setText(quest.getStory());
+        tip.setText(quest.getTip().getContent());
     }
 
     public static void start(Context context, int worldId, int questId, int userId) {

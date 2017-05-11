@@ -5,23 +5,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.zeltr.codehero.Entity.QuestsEntity;
+import com.example.zeltr.codehero.Entity.QuestEntity;
+import com.example.zeltr.codehero.Entity.TipEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by P on 11-05-2017.
- */
-
 public class QuestRepository extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "codeHeroDB";
-    private static final int DATABASE_VERSION = 1;
-
     public QuestRepository(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        //context.deleteDatabase("codeHeroDB");
+        super(context, DBInfo.DATABASE_NAME, null, DBInfo.DATABASE_VERSION);
         this.getWritableDatabase();
     }
 
@@ -34,19 +27,19 @@ public class QuestRepository extends SQLiteOpenHelper {
 
     }
 
-    public List<QuestsEntity> fetchQuests(int worldId) {
+    public List<QuestEntity> fetchQuests(int worldId) {
 
         SQLiteDatabase db = this.getReadableDatabase();
         String query =  "SELECT * FROM userQuests WHERE worldId = " + worldId;
 
         Cursor cursor = db.rawQuery(query, null);
 
-        List<QuestsEntity> quests = new ArrayList<>();
+        List<QuestEntity> quests = new ArrayList<>();
 
         while(cursor.moveToNext()) {
-            QuestsEntity quest = new QuestsEntity();
+            QuestEntity quest = new QuestEntity();
             quest.setId(cursor.getInt(1));
-            quest.setName(cursor.getString(2));
+            quest.setStory(cursor.getString(2));
             quest.setWorldID(cursor.getInt(3));
             quest.setCompleted(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
             quests.add(quest);
@@ -56,6 +49,35 @@ public class QuestRepository extends SQLiteOpenHelper {
         db.close();
 
         return quests;
+    }
+
+    public QuestEntity fetchQuestById(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "SELECT quests.id, quests.story, quests.worldId, userQuests.completed, tips.id, tips.content FROM quests "
+                + "INNER JOIN userQuests ON quests.id = userQuests.questId "
+                + "INNER JOIN tips ON quests.id = tips.questId"
+                + "WHERE userQuests.id = ?";
+
+        Cursor cursor = db.rawQuery(sql, new String[] {String.valueOf(id)});
+
+        cursor.moveToFirst();
+
+        QuestEntity quest = new QuestEntity();
+        quest.setId(cursor.getInt(1));
+        quest.setStory(cursor.getString(2));
+        quest.setWorldID(cursor.getInt(3));
+        quest.setCompleted(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
+
+        TipEntity tip = new TipEntity();
+        tip.setId(cursor.getInt(5));
+        tip.setContent(cursor.getString(6));
+
+        quest.setTip(tip);
+
+        cursor.close();
+        db.close();
+
+        return quest;
     }
 
 }

@@ -1,11 +1,12 @@
 package com.example.zeltr.codehero.Entity;
 
-public class QuestsEntity {
+public class QuestEntity {
 
     private int id;
-    private String name;
+    private String story;
     private int worldID;
     private boolean completed;
+    private TipEntity tip;
 
     public int getId() {
         return id;
@@ -15,13 +16,9 @@ public class QuestsEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getStory() { return story;}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setStory(String story) { this.story = story; }
 
     public int getWorldID() {
         return worldID;
@@ -35,4 +32,7 @@ public class QuestsEntity {
 
     public boolean isCompleted() { return completed; }
 
+    public TipEntity getTip() { return tip; }
+
+    public void setTip(TipEntity tip) { this.tip = tip; }
 }
