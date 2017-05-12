@@ -42,7 +42,7 @@ public class ChooseWorld extends Activity {
     }
 
     protected void showCharacter(View view){
-        //Intent intent = new Intent(this, Character.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, Character.class);
+        startActivity(intent);
     }
 }
