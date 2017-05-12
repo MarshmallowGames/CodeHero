@@ -1,9 +1,12 @@
 package com.example.zeltr.codehero;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Character extends Activity {
 
@@ -13,9 +16,11 @@ public class Character extends Activity {
         setContentView(R.layout.activity_character);
     }
 
-    protected void equipItem(View view){
-        String item = view.toString();
-
+    public void equipItem(View v){
+        //Hardcoded test before attempting db.
+        ImageView item = (ImageView)findViewById(R.id.leftHand);
+        item.setImageResource(R.drawable.sword);
+        item.setVisibility(View.VISIBLE);
 /*
         switch(category){
             case "weapon":
@@ -33,8 +38,7 @@ public class Character extends Activity {
 
     }
 
-    /*public View getItemFromDB(){
-
-        return View;
-    }*/
+    public void unequipItem(View v){
+        v.setVisibility(View.INVISIBLE);
+    }
 }
