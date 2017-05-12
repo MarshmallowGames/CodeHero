@@ -27,7 +27,7 @@ public class DBHandler extends SQLiteOpenHelper {
             + "story VARCHAR(255), "
             + "worldID INTEGER, "
             + "FOREIGN KEY(worldID) REFERENCES worlds(id))";
-    private static final String INSERT_QUESTS = "INSERT INTO quests (name, worldID) "
+    private static final String INSERT_QUESTS = "INSERT INTO quests (story, worldID) "
             + "VALUES ('quest1', 1), ('quest2', 1), ('quest3', 1), ('quest4', 1)";
 
     private static final String CREATE_USER_QUESTS_TABLE = "CREATE TABLE IF NOT EXISTS userQuests ("
@@ -71,6 +71,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public DBHandler(Context context) {
         super(context, DBInfo.DATABASE_NAME, null, DBInfo.DATABASE_VERSION);
+        context.deleteDatabase("codeHeroDB");
         this.getWritableDatabase();
     }
 
@@ -116,7 +117,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public boolean isQuestComplete(int worldId, int questId, int userId) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String query = "SELECT quests.id, quests.name, quests.worldId, userQuests.completed FROM quests "
+        String query = "SELECT quests.id, quests.story, quests.worldId, userQuests.completed FROM quests "
                 + "LEFT JOIN userQuests ON quests.id = userQuests.questId "
                 + "WHERE userQuests.worldId = " + worldId + " "
                 + "AND userQuests.questId = " + questId + " "
