@@ -5,11 +5,9 @@ public class TaskEntity {
     int id;
     String content;
     String description;
-    int worldId;
+    int questId;
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
@@ -31,11 +29,11 @@ public class TaskEntity {
         this.description = description;
     }
 
-    public int getWorldId() {
-        return worldId;
+    public int getQuestId() {
+        return questId;
     }
 
-    public void setWorldId(int worldId) {
-        this.worldId = worldId;
+    public void setQuestId(int questId) {
+        this.questId = questId;
     }
 }

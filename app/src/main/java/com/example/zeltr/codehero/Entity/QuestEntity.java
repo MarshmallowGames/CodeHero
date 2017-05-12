@@ -1,12 +1,14 @@
 package com.example.zeltr.codehero.Entity;
 
+import java.util.List;
+
 public class QuestEntity {
 
     private int id;
     private String story;
     private int worldID;
     private boolean completed;
-    private TipEntity tip;
+    private List<TipEntity> tips;
 
     public int getId() {
         return id;
@@ -32,7 +34,7 @@ public class QuestEntity {
 
     public boolean isCompleted() { return completed; }
 
-    public TipEntity getTip() { return tip; }
+    public List<TipEntity> getTips() { return tips; }
 
-    public void setTip(TipEntity tip) { this.tip = tip; }
+    public void setTips(List<TipEntity> tips) { this.tips = tips; }
 }

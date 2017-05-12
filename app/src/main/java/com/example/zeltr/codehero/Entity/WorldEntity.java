@@ -1,7 +1,7 @@
 package com.example.zeltr.codehero.Entity;
 
 
-public class WorldsEntity {
+public class WorldEntity {
 
     private int id;
     private String name;
