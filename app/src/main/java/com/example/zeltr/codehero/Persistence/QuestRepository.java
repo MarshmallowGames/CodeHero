@@ -80,4 +80,30 @@ public class QuestRepository extends SQLiteOpenHelper {
         return quest;
     }
 
+    public boolean isQuestComplete(int worldId, int questId, int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT quests.id, quests.story, quests.worldId, userQuests.completed FROM quests "
+                + "LEFT JOIN userQuests ON quests.id = userQuests.questId "
+                + "WHERE userQuests.worldId = ? "
+                + "AND userQuests.questId = ? "
+                + "AND userQuests.userId = ? ";
+
+        Cursor cursor = db.rawQuery(query,  new String[] {String.valueOf(worldId), String.valueOf(questId), String.valueOf(userId)});
+        int isCompleted = 0;
+
+        if (cursor.moveToFirst()) {
+            isCompleted = cursor.getInt(cursor.getColumnIndex("completed"));
+        }
+
+        cursor.close();
+        db.close();
+
+        if (isCompleted == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
