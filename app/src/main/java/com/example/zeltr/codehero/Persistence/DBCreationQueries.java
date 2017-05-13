@@ -19,7 +19,7 @@ public class DBCreationQueries {
 
     public static final String CREATE_QUEST_TABLE = "CREATE TABLE IF NOT EXISTS quests ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "story VARCHAR(255), "
+            + "story TEXT, "
             + "worldID INTEGER, "
             + "FOREIGN KEY(worldID) REFERENCES worlds(id))";
     public static final String INSERT_QUESTS = "INSERT INTO quests (story, worldID) "
@@ -40,16 +40,16 @@ public class DBCreationQueries {
 
     public static final String CREATE_TIPS_TABLE = "CREATE TABLE IF NOT EXISTS tips ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "content VARCHAR(255), "
+            + "content TEXT, "
             + "questId INTEGER, "
             + "FOREIGN KEY(questId) REFERENCES quests(id))";
 
     public static final String CREATE_TASKS_TABLE = "CREATE TABLE IF NOT EXISTS tasks ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "content VARCHAR(255), "
+            + "content TEXT, "
             + "worldId INTEGER, "
-            + "answer VARCHAR(500), "
-            + "description VARCHAR(500), "
+            + "answer TEXT, "
+            + "description TEXT, "
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
 
     public static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
@@ -61,7 +61,15 @@ public class DBCreationQueries {
     public static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "userId INTEGER, "
+            + "itemId INTEGER, "
             + "isActive BOOLEAN, "
-            + "FOREIGN KEY(userId) REFERENCES user(id))";
+            + "FOREIGN KEY(userId) REFERENCES user(id)"
+            + "FOREIGN KEY(itemId) REFERENCES items(id))";
+
+    public static final String CREATE_ITEMS_TYPE_TABLE = "CREATE TABLE IF NOT EXISTS itemsTypes ("
+            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + "name VARCHAR(250), "
+            + "userId INTEGER, "
+            + "FOREIGN KEY(userId) REFERENCES users(id))";
 
 }

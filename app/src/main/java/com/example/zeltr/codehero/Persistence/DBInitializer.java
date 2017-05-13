@@ -35,6 +35,8 @@ public class DBInitializer extends SQLiteOpenHelper {
             db.execSQL(DBCreationQueries.CREATE_ITEMS_TABLE);
 
             db.execSQL(DBCreationQueries.CREATE_USER_ITEMS_TABLE);
+
+            db.execSQL(DBCreationQueries.CREATE_ITEMS_TYPE_TABLE);
         }
     }
 
