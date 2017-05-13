@@ -9,7 +9,7 @@ public class DBInitializer extends SQLiteOpenHelper {
 
     public DBInitializer(Context context) {
         super(context, DBInfo.DATABASE_NAME, null, DBInfo.DATABASE_VERSION);
-        context.deleteDatabase("codeHeroDB");
+        //context.deleteDatabase("codeHeroDB");
         this.getWritableDatabase();
     }
 
