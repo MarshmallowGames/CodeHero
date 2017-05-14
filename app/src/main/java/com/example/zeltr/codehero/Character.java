@@ -18,6 +18,7 @@ public class Character extends Activity {
 
     public void equipItem(View v){
         //Hardcoded test before attempting db.
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
         ImageView item = (ImageView)findViewById(R.id.leftHand);
         item.setImageResource(R.drawable.sword);
         item.setVisibility(View.VISIBLE);
@@ -39,6 +40,6 @@ public class Character extends Activity {
     }
 
     public void unequipItem(View v){
-        v.setVisibility(View.INVISIBLE);
+        v.setVisibility(View.GONE);
     }
 }
