@@ -41,7 +41,14 @@ public class QuestRepository extends SQLiteOpenHelper {
             quest.setId(cursor.getInt(1));
             quest.setStory(cursor.getString(2));
             quest.setWorldID(cursor.getInt(3));
-            quest.setCompleted(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
+
+            int isCompleted = cursor.getInt(4);
+            if(isCompleted == 1) {
+                quest.setCompleted(true);
+            } else {
+                quest.setCompleted(false);
+            }
+
             quests.add(quest);
         }
 
