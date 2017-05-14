@@ -36,10 +36,10 @@ public class QuestRepository extends SQLiteOpenHelper {
 
         List<QuestEntity> quests = new ArrayList<>();
 
+        // Add more setters if needed
         while(cursor.moveToNext()) {
             QuestEntity quest = new QuestEntity();
-            quest.setId(cursor.getInt(1));
-            quest.setStory(cursor.getString(2));
+            quest.setId(cursor.getInt(2));
             quest.setWorldID(cursor.getInt(3));
 
             int isCompleted = cursor.getInt(4);
@@ -79,7 +79,7 @@ public class QuestRepository extends SQLiteOpenHelper {
         tip.setId(cursor.getInt(5));
         tip.setContent(cursor.getString(6));
 
-        quest.setTip(tip);
+        //quest.setTip(tip);
 
         cursor.close();
         db.close();
