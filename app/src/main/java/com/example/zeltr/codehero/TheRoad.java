@@ -20,10 +20,27 @@ public class TheRoad extends Activity {
 
         QuestRepository qr = new QuestRepository(this);
         List<QuestEntity> quests = qr.fetchQuests(1);
+
         for (int i = 0; i < quests.size(); i++) {
             if(quests.get(i).isCompleted()) {
-                ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-                imageView.setVisibility(View.GONE);
+                switch (i) {
+                    case 1:
+                        ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
+                        imageView2.setVisibility(View.GONE);
+                        break;
+                    case 2:
+                        ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
+                        imageView3.setVisibility(View.GONE);
+                        break;
+                    case 3:
+                        ImageView imageView4 = (ImageView) findViewById(R.id.imageView4);
+                        imageView4.setVisibility(View.GONE);
+                        break;
+                    default:
+                        break;
+                }
+
+
             }
         }
 
