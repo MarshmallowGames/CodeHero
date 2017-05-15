@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.zeltr.codehero.Entity.QuestEntity;
@@ -17,6 +18,8 @@ public class QuestActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quest);
+
         Intent intent = this.getIntent();
         userId = intent.getIntExtra("userId", 1);
         questId = intent.getIntExtra("questId", 1);
@@ -37,6 +40,10 @@ public class QuestActivity extends Activity {
         intent.putExtra("userId", userId);
         intent.putExtra("questId", questId);
         context.startActivity(intent);
+    }
+
+    protected void nextButtonOnClick(View view) {
+        TaskActivity.start(this, questId, userId, questId);
     }
 
 }

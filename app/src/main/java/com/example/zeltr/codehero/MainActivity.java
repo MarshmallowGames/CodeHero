@@ -3,9 +3,11 @@ package com.example.zeltr.codehero;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.zeltr.codehero.Persistence.DBInitializer;
+import com.example.zeltr.codehero.Persistence.TaskRepository;
 
 public class MainActivity extends Activity {
 
@@ -15,7 +17,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         new DBInitializer(this);
-
     }
 
     protected void startQuest(View view){

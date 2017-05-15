@@ -59,9 +59,11 @@ public class QuestRepository extends SQLiteOpenHelper {
 
     public QuestEntity fetchQuestById(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String sql = "SELECT * FROM quests WHERE quests.id = ?";
+        String sql = "SELECT quests.id, quests.story, quests.worldId, IFNULL(userQuests.completed, 0) FROM quests, userQuests " +
+                " WHERE quests.id = ? AND userQuests.questId = ?";
 
-        Cursor cursor = db.rawQuery(sql, new String[] {String.valueOf(id)});
+        String idToBind = String.valueOf(id);
+        Cursor cursor = db.rawQuery(sql, new String[] {idToBind, idToBind});
 
         cursor.moveToNext();
 
@@ -69,6 +71,7 @@ public class QuestRepository extends SQLiteOpenHelper {
         quest.setId(cursor.getInt(0));
         quest.setStory(cursor.getString(1));
         quest.setWorldID(cursor.getInt(2));
+        quest.setCompleted(cursor.getInt(3) != 0);
 
         String tipsSql = "SELECT * FROM tips "
                 + "WHERE tips.questId = ?";
@@ -78,12 +81,11 @@ public class QuestRepository extends SQLiteOpenHelper {
 
         while(tipsCursor.moveToNext()) {
             TipEntity tip = new TipEntity();
-            tip.setId(cursor.getInt(0));
-            tip.setContent(cursor.getString(1));
-            tip.setQuestId(cursor.getInt(2));
+            tip.setId(tipsCursor.getInt(0));
+            tip.setContent(tipsCursor.getString(1));
+            tip.setQuestId(tipsCursor.getInt(2));
             tips.add(tip);
         }
-
         quest.setTips(tips);
 
         cursor.close();
@@ -93,13 +95,15 @@ public class QuestRepository extends SQLiteOpenHelper {
         return quest;
     }
 
-    public void completeQuest(int questId) {
+    public void markAsCompleted(int userId, int questId) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String sql = "INSERT INTO quests SET completed = 1 "
-                + "WHERE quests.id = ? ";
+        String sql = "INSERT INTO userQuests SET completed = 1 "
+                + "WHERE userQuests.userId = ? AND userQuests.questId = ?";
 
-        db.execSQL(sql, new String[] {String.valueOf(questId)});
+        String userIdToBind = String.valueOf(userId);
+        String questIdToBind = String.valueOf(userId);
+        db.execSQL(sql, new String[] {userIdToBind, questIdToBind});
     }
 
     public boolean isQuestComplete(int worldId, int questId, int userId) {

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.zeltr.codehero.Entity.QuestEntity;
-import com.example.zeltr.codehero.Persistence.QuestRepository;
+import com.example.zeltr.codehero.Entity.TaskEntity;
+import com.example.zeltr.codehero.Persistence.TaskRepository;
 
 public class TaskActivity extends Activity {
 
@@ -19,22 +19,25 @@ public class TaskActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_task);
+
         Intent intent = this.getIntent();
 
         userId = intent.getIntExtra("userId", 1);
         taskId = intent.getIntExtra("taskId", 1);
         questId = intent.getIntExtra("questId", 1);
 
-        QuestRepository questRepository = new QuestRepository(this);
+        TaskRepository taskRepo = new TaskRepository(this);
 
-        //Dur ikke
-        QuestEntity quest = questRepository.fetchQuestById(taskId);
+        TaskEntity task = taskRepo.fetchTaskById(taskId);
 
-        TextView tip = (TextView) findViewById(R.id.tip);
-        TextView task = (TextView) findViewById(R.id.task);
+        TextView descriptionView = (TextView) findViewById(R.id.taskDescription);
+        TextView contentView = (TextView) findViewById(R.id.taskContent);
 
-        tip.setText(quest.getStory());
-        task.setText(quest.getTips().get(0).getContent());
+        TextView tipView = (TextView) findViewById(R.id.taskTip);
+
+        descriptionView.setText(task.getDescription());
+        contentView.setText(task.getContent());
     }
 
     public static void start(Context context, int taskId,  int userId, int questId) {

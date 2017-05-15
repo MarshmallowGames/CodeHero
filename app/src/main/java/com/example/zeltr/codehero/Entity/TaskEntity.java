@@ -42,7 +42,16 @@ public class TaskEntity {
 
     public void setAnswer(String answer) { this.answer = answer; }
 
-    public boolean isSolved(String input) {
-        return answer.equalsIgnoreCase(input);
+    public boolean isSolved(String input) { return answer.equalsIgnoreCase(input); }
+
+    @Override
+    public String toString() {
+        return "TaskEntity{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", description='" + description + '\'' +
+                ", questId=" + questId +
+                ", answer='" + answer + '\'' +
+                '}';
     }
 }

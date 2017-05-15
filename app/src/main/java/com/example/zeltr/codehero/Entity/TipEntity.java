@@ -29,4 +29,13 @@ public class TipEntity {
     public void setQuestId(int questId) {
         this.questId = questId;
     }
+
+    @Override
+    public String toString() {
+        return "TipEntity{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", questId=" + questId +
+                '}';
+    }
 }

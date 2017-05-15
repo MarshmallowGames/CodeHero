@@ -32,11 +32,11 @@ public class TaskRepository extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         TaskEntity task = new TaskEntity();
-        task.setId(cursor.getInt(1));
-        task.setContent(cursor.getString(2));
-        task.setQuestId(cursor.getInt(3));
-        task.setAnswer(cursor.getString(4));
-        task.setDescription(cursor.getString(5));
+        task.setId(cursor.getInt(0));
+        task.setContent(cursor.getString(1));
+        task.setQuestId(cursor.getInt(2));
+        task.setAnswer(cursor.getString(3));
+        task.setDescription(cursor.getString(4));
 
         return task;
     }

@@ -19,7 +19,9 @@
         <activity android:name=".TheRoad" />
         <activity android:name=".TheRoadQuest1" />
         <activity android:name=".ChooseWorld" />
-        <activity android:name=".Character"></activity>
+        <activity android:name=".Character" />
+        <activity android:name=".QuestActivity" />
+        <activity android:name=".TaskActivity" />
     </application>
 
 </manifest>

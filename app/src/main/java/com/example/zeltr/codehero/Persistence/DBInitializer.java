@@ -8,13 +8,13 @@ public class DBInitializer extends SQLiteOpenHelper {
 
     public DBInitializer(Context context) {
         super(context, DBInfo.DATABASE_NAME, null, DBInfo.DATABASE_VERSION);
-        context.deleteDatabase("codeHeroDB");
+        context.deleteDatabase(DBInfo.DATABASE_NAME);
         this.getWritableDatabase();
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        if (!tableExists(db)) {
+        if (!tableUsersExists(db)) {
             db.execSQL(DBCreationQueries.CREATE_USER_TABLE);
             db.execSQL(DBCreationQueries.INSERT_INTO_USER_TABLE);
 
@@ -31,6 +31,7 @@ public class DBInitializer extends SQLiteOpenHelper {
             db.execSQL(DBCreationQueries.INSERT_TIPS);
 
             db.execSQL(DBCreationQueries.CREATE_TASKS_TABLE);
+            db.execSQL(DBCreationQueries.INSERT_TASKS);
 
             db.execSQL(DBCreationQueries.CREATE_ITEMS_TABLE);
 
@@ -40,9 +41,9 @@ public class DBInitializer extends SQLiteOpenHelper {
         }
     }
 
-    public boolean tableExists(SQLiteDatabase db) {
+    public boolean tableUsersExists(SQLiteDatabase db) {
         try {
-            db.rawQuery("SELECT * FROM user", null);
+            db.rawQuery("SELECT * FROM users", null);
         } catch (Exception e) {
             return false;
         }
