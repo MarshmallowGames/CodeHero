@@ -24,15 +24,15 @@ public class TheRoad extends Activity {
         for (int i = 0; i < quests.size(); i++) {
             if(quests.get(i).isCompleted()) {
                 switch (i) {
-                    case 1:
+                    case 0:
                         ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
                         imageView2.setVisibility(View.GONE);
                         break;
-                    case 2:
+                    case 1:
                         ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
                         imageView3.setVisibility(View.GONE);
                         break;
-                    case 3:
+                    case 2:
                         ImageView imageView4 = (ImageView) findViewById(R.id.imageView4);
                         imageView4.setVisibility(View.GONE);
                         break;
