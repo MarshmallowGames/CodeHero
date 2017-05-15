@@ -20,9 +20,9 @@ public class DBCreationQueries {
     public static final String CREATE_QUEST_TABLE = "CREATE TABLE IF NOT EXISTS quests ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "story TEXT, "
-            + "worldID INTEGER, "
-            + "FOREIGN KEY(worldID) REFERENCES worlds(id))";
-    public static final String INSERT_QUESTS = "INSERT INTO quests (story, worldID) "
+            + "worldId INTEGER, "
+            + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
+    public static final String INSERT_QUESTS = "INSERT INTO quests (story, worldId) "
             + "VALUES ('quest1', 1), ('quest2', 1), ('quest3', 1), ('quest4', 1)";
 
     public static final String CREATE_USER_QUESTS_TABLE = "CREATE TABLE IF NOT EXISTS userQuests ("
@@ -43,6 +43,9 @@ public class DBCreationQueries {
             + "content TEXT, "
             + "questId INTEGER, "
             + "FOREIGN KEY(questId) REFERENCES quests(id))";
+
+    public static final String INSERT_TIPS = "INSERT INTO tips (content, questId) "
+            + "VALUES ('Tip 1', 1), ('Tip 2', 1), ('Tip 3', 1)";
 
     public static final String CREATE_TASKS_TABLE = "CREATE TABLE IF NOT EXISTS tasks ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "

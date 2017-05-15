@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         new DBInitializer(this);
+
     }
 
     protected void startQuest(View view){

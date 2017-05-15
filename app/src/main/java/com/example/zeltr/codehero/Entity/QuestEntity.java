@@ -37,4 +37,15 @@ public class QuestEntity {
     public List<TipEntity> getTips() { return tips; }
 
     public void setTips(List<TipEntity> tips) { this.tips = tips; }
+
+    @Override
+    public String toString() {
+        return "QuestEntity{" +
+                "id=" + id +
+                ", story='" + story + '\'' +
+                ", worldID=" + worldID +
+                ", completed=" + completed +
+                ", tips=" + tips +
+                '}';
+    }
 }

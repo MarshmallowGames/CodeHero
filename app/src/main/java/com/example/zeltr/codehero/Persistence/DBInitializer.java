@@ -28,6 +28,7 @@ public class DBInitializer extends SQLiteOpenHelper {
             db.execSQL(DBCreationQueries.INSERT_USER_QUESTS);
 
             db.execSQL(DBCreationQueries.CREATE_TIPS_TABLE);
+            db.execSQL(DBCreationQueries.INSERT_TIPS);
 
             db.execSQL(DBCreationQueries.CREATE_TASKS_TABLE);
 

@@ -2,10 +2,11 @@ package com.example.zeltr.codehero.Entity;
 
 public class TaskEntity {
 
-    int id;
-    String content;
-    String description;
-    int questId;
+    private int id;
+    private String content;
+    private String description;
+    private int questId;
+    private String answer;
 
     public int getId() { return id; }
 
@@ -35,5 +36,13 @@ public class TaskEntity {
 
     public void setQuestId(int questId) {
         this.questId = questId;
+    }
+
+    public String getAnswer() { return answer; }
+
+    public void setAnswer(String answer) { this.answer = answer; }
+
+    public boolean isSolved(String input) {
+        return answer.equalsIgnoreCase(input);
     }
 }

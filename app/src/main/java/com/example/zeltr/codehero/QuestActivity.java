@@ -25,11 +25,11 @@ public class QuestActivity extends Activity {
 
         QuestEntity quest = questRepo.fetchQuestById(questId);
 
-        TextView story = (TextView) findViewById(R.id.questStory);
-        TextView tip = (TextView) findViewById(R.id.questTip);
+        TextView storyView = (TextView) findViewById(R.id.questStory);
+        TextView tipView = (TextView) findViewById(R.id.questTip);
 
-        story.setText(quest.getStory());
-        tip.setText(quest.getTips().get(0).getContent());
+        storyView.setText(quest.getStory());
+        tipView.setText(quest.getTips().get(0).getContent());
     }
 
     public static void start(Context context, int worldId, int questId, int userId) {

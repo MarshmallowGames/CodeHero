@@ -24,7 +24,6 @@ public class QuestRepository extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     public List<QuestEntity> fetchQuests(int worldId) {
@@ -60,20 +59,16 @@ public class QuestRepository extends SQLiteOpenHelper {
 
     public QuestEntity fetchQuestById(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String sql = "SELECT quests.id, quests.story, quests.worldId, userQuests.completed, tips.id, tips.content FROM quests "
-                + "INNER JOIN userQuests ON quests.id = userQuests.questId "
-                + "INNER JOIN tips ON quests.id = tips.questId"
-                + "WHERE userQuests.id = ?";
+        String sql = "SELECT * FROM quests WHERE quests.id = ?";
 
         Cursor cursor = db.rawQuery(sql, new String[] {String.valueOf(id)});
 
-        cursor.moveToFirst();
+        cursor.moveToNext();
 
         QuestEntity quest = new QuestEntity();
-        quest.setId(cursor.getInt(1));
-        quest.setStory(cursor.getString(2));
-        quest.setWorldID(cursor.getInt(3));
-        quest.setCompleted(cursor.getInt(4) != 0);
+        quest.setId(cursor.getInt(0));
+        quest.setStory(cursor.getString(1));
+        quest.setWorldID(cursor.getInt(2));
 
         String tipsSql = "SELECT * FROM tips "
                 + "WHERE tips.questId = ?";
@@ -96,6 +91,15 @@ public class QuestRepository extends SQLiteOpenHelper {
         db.close();
 
         return quest;
+    }
+
+    public void completeQuest(int questId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String sql = "INSERT INTO quests SET completed = 1 "
+                + "WHERE quests.id = ? ";
+
+        db.execSQL(sql, new String[] {String.valueOf(questId)});
     }
 
     public boolean isQuestComplete(int worldId, int questId, int userId) {

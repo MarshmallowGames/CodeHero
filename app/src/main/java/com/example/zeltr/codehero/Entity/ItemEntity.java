@@ -5,6 +5,7 @@ public class ItemEntity {
     private int id;
     private String uniqueId;
     private String type;
+    private String position;
     private boolean isActive;
 
     public int getId() { return id; }
@@ -26,4 +27,8 @@ public class ItemEntity {
     public boolean isActive() { return isActive; }
 
     public void setActive(boolean active) { isActive = active; }
+
+    public String getPosition() { return position; }
+
+    public void setPosition(String position) { this.position = position; }
 }
