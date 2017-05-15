@@ -6,4 +6,72 @@
     android:layout_height="match_parent"
     tools:context="com.example.zeltr.codehero.TaskActivity">
 
+    <ImageView
+        android:background="@drawable/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/backgroundPicture"
+        android:scaleType="fitXY"
+        tools:ignore="contentDescription"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/settingsBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/settings_small"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:src="@drawable/code_hero_logo"
+        android:layout_width="207dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="contentDescription"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/tip"
+        style="@style/QuestDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="149dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/task"
+        style="@style/QuestDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="262dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
