@@ -56,7 +56,7 @@ public class DBCreationQueries {
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "uniqueId TEXT, "
             + "position TEXT, "
-            + "type VARCHAR(250), ";
+            + "type VARCHAR(250))";
 
     public static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
