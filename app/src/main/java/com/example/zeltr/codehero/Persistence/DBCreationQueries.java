@@ -36,7 +36,7 @@ public class DBCreationQueries {
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
 
     public static final String INSERT_USER_QUESTS = "INSERT INTO userQuests (userId, questId, worldId, completed) "
-            + "VALUES (1, 1, 1, 0), (1, 2, 1, 0), (1, 3, 1, 0), (1, 4, 1, 0)";
+            + "VALUES (1, 1, 1, 1), (1, 2, 1, 1), (1, 3, 1, 0), (1, 4, 1, 0)";
 
     public static final String CREATE_TIPS_TABLE = "CREATE TABLE IF NOT EXISTS tips ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "

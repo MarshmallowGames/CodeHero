@@ -51,23 +51,17 @@ public class TheRoad extends Activity {
 
     protected void startQuest1(View view){
         QuestActivity.start(this, 1, 1, 1);
-//        Intent intent = new Intent(this, TheRoadQuest1.class);
-//        startActivity(intent);
-//        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
     }
 
     protected void startQuest2(View view){
-        //Intent intent = new Intent(this, TheRoad2Activity.class);
-        //startActivity(intent);
+        QuestActivity.start(this, 2, 1, 2);
     }
 
     protected void startQuest3(View view){
-        //Intent intent = new Intent(this, TheRoad3Activity.class);
-        //startActivity(intent);
+        QuestActivity.start(this, 3, 1, 3);
     }
 
     protected void startQuest4(View view){
-        //Intent intent = new Intent(this, TheRoad4Activity.class);
-        //startActivity(intent);
+        QuestActivity.start(this, 4, 1, 4);
     }
 }
