@@ -54,14 +54,14 @@ public class TheRoad extends Activity {
     }
 
     protected void startQuest2(View view){
-        QuestActivity.start(this, 2, 1, 2);
+        QuestActivity.start(this, 1, 1, 1);
     }
 
     protected void startQuest3(View view){
-        QuestActivity.start(this, 3, 1, 3);
+        QuestActivity.start(this, 1, 1, 1);
     }
 
     protected void startQuest4(View view){
-        QuestActivity.start(this, 4, 1, 4);
+        QuestActivity.start(this, 1, 1, 1);
     }
 }
