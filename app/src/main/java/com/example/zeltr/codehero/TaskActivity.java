@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.zeltr.codehero.Entity.QuestEntity;
@@ -42,5 +43,9 @@ public class TaskActivity extends Activity {
         intent.putExtra("taskId", taskId);
         intent.putExtra("userId", userId);
         context.startActivity(intent);
+    }
+
+    protected void checkCode(View view){
+
     }
 }
