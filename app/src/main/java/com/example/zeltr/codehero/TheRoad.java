@@ -1,7 +1,6 @@
 package com.example.zeltr.codehero;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,11 +50,10 @@ public class TheRoad extends Activity {
     }
 
     protected void startQuest1(View view){
-        //QuestActivity qa = new QuestActivity();
-        //qa.start(this, 1, 1, 1);
-        Intent intent = new Intent(this, TheRoadQuest1.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
+        QuestActivity.start(this, 1, 1, 1);
+//        Intent intent = new Intent(this, TheRoadQuest1.class);
+//        startActivity(intent);
+//        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
     }
 
     protected void startQuest2(View view){
