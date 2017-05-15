@@ -18,9 +18,20 @@ public class Character extends Activity {
 
     public void equipItem(View v){
         //Hardcoded test before attempting db.
-        ImageView item = (ImageView)findViewById(R.id.leftHand);
-        item.setImageResource(R.drawable.sword);
-        item.setVisibility(View.VISIBLE);
+        ImageView left = (ImageView)findViewById(R.id.leftHand);
+        ImageView right = (ImageView)findViewById(R.id.rightHand);
+
+        if(v.getId() == R.id.sword){
+            left.setImageResource(R.drawable.sword);
+            left.setVisibility(View.VISIBLE);
+        }
+        else if(v.getId() == R.id.shield){
+            right.setImageResource(R.drawable.button_round);
+            right.setVisibility(View.VISIBLE);
+        }
+
+
+
 /*
         switch(category){
             case "weapon":
