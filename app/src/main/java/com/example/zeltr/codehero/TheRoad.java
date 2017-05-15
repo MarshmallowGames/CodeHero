@@ -51,6 +51,8 @@ public class TheRoad extends Activity {
     }
 
     protected void startQuest1(View view){
+        //QuestActivity qa = new QuestActivity();
+        //qa.start(this, 1, 1, 1);
         Intent intent = new Intent(this, TheRoadQuest1.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_in_left);
