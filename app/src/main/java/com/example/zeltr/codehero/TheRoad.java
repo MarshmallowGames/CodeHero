@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.zeltr.codehero.Entity.QuestEntity;
@@ -27,25 +28,26 @@ public class TheRoad extends Activity {
                     case 0:
                         ImageView imageView2 = (ImageView) findViewById(R.id.imageView2);
                         imageView2.setVisibility(View.GONE);
+                        Button quest2Btn = (Button) findViewById(R.id.button2);
+                        quest2Btn.setEnabled(true);
                         break;
                     case 1:
                         ImageView imageView3 = (ImageView) findViewById(R.id.imageView3);
                         imageView3.setVisibility(View.GONE);
+                        Button quest3Btn = (Button) findViewById(R.id.button3);
+                        quest3Btn.setEnabled(true);
                         break;
                     case 2:
                         ImageView imageView4 = (ImageView) findViewById(R.id.imageView4);
                         imageView4.setVisibility(View.GONE);
+                        Button quest4Btn = (Button) findViewById(R.id.button4);
+                        quest4Btn.setEnabled(true);
                         break;
                     default:
                         break;
                 }
-
-
             }
         }
-
-
-
     }
 
     protected void startQuest1(View view){
