@@ -54,9 +54,9 @@ public class DBCreationQueries {
 
     public static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "uniqueId INTEGER, "
+            + "uniqueId TEXT, "
             + "position TEXT, "
-            + "FOREIGN KEY(userId) REFERENCES user(id))";
+            + "type VARCHAR(250), ";
 
     public static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
