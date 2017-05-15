@@ -1,7 +1,6 @@
 package com.example.zeltr.codehero.Persistence;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,7 +8,7 @@ public class DBInitializer extends SQLiteOpenHelper {
 
     public DBInitializer(Context context) {
         super(context, DBInfo.DATABASE_NAME, null, DBInfo.DATABASE_VERSION);
-        //context.deleteDatabase("codeHeroDB");
+        context.deleteDatabase("codeHeroDB");
         this.getWritableDatabase();
     }
 
@@ -36,7 +35,6 @@ public class DBInitializer extends SQLiteOpenHelper {
 
             db.execSQL(DBCreationQueries.CREATE_USER_ITEMS_TABLE);
 
-            db.execSQL(DBCreationQueries.CREATE_ITEMS_TYPE_TABLE);
         }
     }
 

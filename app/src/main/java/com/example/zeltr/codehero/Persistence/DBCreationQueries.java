@@ -47,15 +47,15 @@ public class DBCreationQueries {
     public static final String CREATE_TASKS_TABLE = "CREATE TABLE IF NOT EXISTS tasks ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "content TEXT, "
-            + "worldId INTEGER, "
+            + "questId INTEGER, "
             + "answer TEXT, "
             + "description TEXT, "
-            + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
+            + "FOREIGN KEY(questId) REFERENCES quests(id))";
 
     public static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "userId INTEGER, "
-            + "category VARCHAR(255), "
+            + "uniqueId INTEGER, "
+            + "position TEXT, "
             + "FOREIGN KEY(userId) REFERENCES user(id))";
 
     public static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
@@ -65,11 +65,5 @@ public class DBCreationQueries {
             + "isActive BOOLEAN, "
             + "FOREIGN KEY(userId) REFERENCES user(id)"
             + "FOREIGN KEY(itemId) REFERENCES items(id))";
-
-    public static final String CREATE_ITEMS_TYPE_TABLE = "CREATE TABLE IF NOT EXISTS itemsTypes ("
-            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + "name VARCHAR(250), "
-            + "userId INTEGER, "
-            + "FOREIGN KEY(userId) REFERENCES users(id))";
 
 }

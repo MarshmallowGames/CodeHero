@@ -73,15 +73,26 @@ public class QuestRepository extends SQLiteOpenHelper {
         quest.setId(cursor.getInt(1));
         quest.setStory(cursor.getString(2));
         quest.setWorldID(cursor.getInt(3));
-        quest.setCompleted(Boolean.valueOf(String.valueOf(cursor.getInt(4))));
+        quest.setCompleted(cursor.getInt(4) != 0);
 
-        TipEntity tip = new TipEntity();
-        tip.setId(cursor.getInt(5));
-        tip.setContent(cursor.getString(6));
+        String tipsSql = "SELECT * FROM tips "
+                + "WHERE tips.questId = ?";
 
-        //quest.setTip(tip);
+        Cursor tipsCursor = db.rawQuery(tipsSql, new String[] {String.valueOf(id)});
+        List<TipEntity> tips = new ArrayList<TipEntity>();
+
+        while(tipsCursor.moveToNext()) {
+            TipEntity tip = new TipEntity();
+            tip.setId(cursor.getInt(0));
+            tip.setContent(cursor.getString(1));
+            tip.setQuestId(cursor.getInt(2));
+            tips.add(tip);
+        }
+
+        quest.setTips(tips);
 
         cursor.close();
+        tipsCursor.close();
         db.close();
 
         return quest;
