@@ -5,10 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.example.zeltr.codehero.Entity.TaskEntity;
 import com.example.zeltr.codehero.Persistence.TaskRepository;
+import com.example.zeltr.codehero.javascript.interfaces.JavascriptInterface;
 
 public class TaskActivity extends Activity {
 
@@ -37,7 +40,14 @@ public class TaskActivity extends Activity {
         TextView tipView = (TextView) findViewById(R.id.taskTip);
 
         descriptionView.setText(task.getDescription());
-        contentView.setText(task.getContent());
+        //contentView.setText(task.getContent());
+
+        WebView webView =(WebView) findViewById(R.id.codeEditor);
+        webView.loadUrl("file:///android_asset/code-editor.html");
+        webView.addJavascriptInterface(new JavascriptInterface(this), "android");
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
     }
 
     public static void start(Context context, int taskId,  int userId, int questId) {
