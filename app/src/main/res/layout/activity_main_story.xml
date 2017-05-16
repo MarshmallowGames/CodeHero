@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.zeltr.codehero.TheRoadStory">
+    tools:context="com.example.zeltr.codehero.MainStory">
 
     <ImageView
         android:background="@drawable/background"
@@ -21,11 +21,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:text="@string/theRoadStory"
-        android:textSize="30sp"
+        android:text="@string/mainStory"
+        android:textSize="25sp"
         android:textColor="#000"
-        android:layout_width="291dp"
-        android:layout_height="349dp"
+        android:layout_width="286dp"
+        android:layout_height="428dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -35,6 +35,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundPicture"
-        app:layout_constraintHorizontal_bias="0.504" />
+        app:layout_constraintHorizontal_bias="0.506" />
 
 </android.support.constraint.ConstraintLayout>

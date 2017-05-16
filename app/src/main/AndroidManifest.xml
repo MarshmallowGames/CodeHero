@@ -24,7 +24,8 @@
         <activity android:name=".TaskActivity" />
         <activity android:name=".TheRoadStory" />
         <activity android:name=".ItemReward" />
-        <activity android:name=".NormalReward"></activity>
+        <activity android:name=".NormalReward" />
+        <activity android:name=".MainStory"></activity>
     </application>
 
 </manifest>

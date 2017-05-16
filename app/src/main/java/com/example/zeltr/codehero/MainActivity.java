@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.zeltr.codehero.Persistence.DBInitializer;
 import com.example.zeltr.codehero.Persistence.TaskRepository;
@@ -19,23 +20,34 @@ public class MainActivity extends Activity {
         new DBInitializer(this);
     }
 
+    protected void readStory(View view){
+        Intent intent = new Intent(this, MainStory.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, 0);
+    }
+
     protected void startQuest(View view){
         Intent intent = new Intent(this, ChooseWorld.class);
         startActivity(intent);
 
         overridePendingTransition(R.anim.slide_in_right, 0);
     }
+
     protected void showCharacter(View view){
         Intent intent = new Intent(this, Character.class);
         startActivity(intent);
 
         overridePendingTransition(R.anim.slide_in_left, 0);
     }
+
     protected void socialize(View view){
+        Toast.makeText(this, "This function is not yet available", Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(this, SocializeActivity.class);
         //startActivity(intent);
     }
+
     protected void showAchievements(View view){
+        Toast.makeText(this, "This function is not yet available", Toast.LENGTH_SHORT).show();
         //Intent intent = new Intent(this, AchievementsActivity.class);
         //startActivity(intent);
     }

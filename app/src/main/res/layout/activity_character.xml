@@ -27,14 +27,35 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/sword"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/image_border"
-                android:contentDescription="@string/itemDescription"
-                android:onClick="equipItem"
-                android:src="@drawable/sword" />
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/sword"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/image_border"
+                    android:contentDescription="@string/itemDescription"
+                    android:onClick="equipItem" />
+
+                <ImageView
+                    android:id="@+id/swordCheck"
+                    android:layout_width="31dp"
+                    android:layout_height="29dp"
+                    android:layout_alignBottom="@id/sword"
+                    android:layout_alignLeft="@id/sword"
+                    android:layout_alignRight="@id/sword"
+                    android:layout_alignTop="@id/sword"
+                    android:layout_marginTop="70dp"
+                    android:background="@drawable/image_border"
+                    tools:layout_editor_absoluteX="177dp" />
+
+            </FrameLayout>
+
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
             <ImageView
                 android:id="@+id/shield"
@@ -42,8 +63,21 @@
                 android:layout_height="100dp"
                 android:background="@drawable/image_border"
                 android:contentDescription="@string/itemDescription"
-                android:onClick="equipItem"
-                android:src="@drawable/shield" />
+                android:onClick="equipItem" />
+
+            <ImageView
+                android:id="@+id/shieldCheck"
+                android:layout_width="31dp"
+                android:layout_height="29dp"
+                android:layout_alignBottom="@id/shield"
+                android:layout_alignLeft="@id/shield"
+                android:layout_alignRight="@id/shield"
+                android:layout_alignTop="@id/shield"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/image_border"
+                tools:layout_editor_absoluteX="177dp" />
+
+            </FrameLayout>
 
         </TableRow>
 
@@ -52,14 +86,30 @@
             android:layout_height="match_parent"
             android:clipChildren="false">
 
+            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
             <ImageView
                 android:id="@+id/armor"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/image_border"
                 android:contentDescription="@string/itemDescription"
-                android:onClick="equipItem"
-                android:src="@drawable/armor" />
+                android:onClick="equipItem" />
+
+            <ImageView
+                android:id="@+id/armorCheck"
+                android:layout_width="31dp"
+                android:layout_height="29dp"
+                android:layout_alignBottom="@id/armor"
+                android:layout_alignLeft="@id/armor"
+                android:layout_alignRight="@id/armor"
+                android:layout_alignTop="@id/armor"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/image_border"
+                tools:layout_editor_absoluteX="177dp" />
+            </FrameLayout>
 
             <ImageView
                 android:id="@+id/item4"
@@ -75,7 +125,7 @@
             android:layout_height="match_parent" >
 
             <ImageView
-                android:id="@+id/item5"
+                android:id="@+id/imageView6"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:contentDescription="@string/itemDescription"
@@ -145,7 +195,6 @@
         android:layout_marginTop="195dp"
         android:contentDescription="@string/leftHand"
         android:onClick="unequipItem"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -163,7 +212,6 @@
         android:layout_marginTop="47dp"
         android:contentDescription="@string/rightHand"
         android:onClick="unequipItem"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
