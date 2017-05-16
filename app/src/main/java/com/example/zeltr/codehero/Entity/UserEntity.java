@@ -7,6 +7,8 @@ public class UserEntity {
     private String lastName;
     private String username;
     private String email;
+    private int exp;
+    private int coins;
 
     public int getId() {
         return id;
@@ -48,4 +50,19 @@ public class UserEntity {
         this.email = email;
     }
 
+    public int getExp() {
+        return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
 }
