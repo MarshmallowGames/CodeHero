@@ -7,9 +7,11 @@ public class DBCreationQueries {
             + "firstName VARCHAR(255), "
             + "lastName VARCHAR(255), "
             + "userName VARCHAR(255), "
-            + "email VARCHAR(255))";
-    public static final String INSERT_INTO_USER_TABLE = "INSERT INTO users (firstName, lastName, userName, email) "
-            + "VALUES ('Dennis', 'Mikkelsen', 'Zeltres', 'Zeltres@hotmail.com')";
+            + "email VARCHAR(255), "
+            + "exp INTEGER, "
+            + "coins INTEGER)";
+    public static final String INSERT_INTO_USER_TABLE = "INSERT INTO users (firstName, lastName, userName, email, exp, coins) "
+            + "VALUES ('Dennis', 'Mikkelsen', 'Zeltres', 'Zeltres@hotmail.com', 0, 0)";
 
     public static final String CREATE_WORLD_TABLE = "CREATE TABLE IF NOT EXISTS worlds ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
