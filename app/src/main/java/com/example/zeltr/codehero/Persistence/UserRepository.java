@@ -5,8 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.zeltr.codehero.Entity.ItemEntity;
+import com.example.zeltr.codehero.Entity.QuestEntity;
 import com.example.zeltr.codehero.Entity.TipEntity;
 import com.example.zeltr.codehero.Entity.UserEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserRepository extends SQLiteOpenHelper {
 
@@ -48,4 +53,34 @@ public class UserRepository extends SQLiteOpenHelper {
 
         return user;
     }
+
+    public List<ItemEntity> fetchUserItemsById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT items.id, items.uniqueId, items.position, items.itemType, userItems.isActive  FROM items "
+                + "LEFT JOIN userItems ON items.id = userItems.itemId "
+                + "WHERE userId = ?";
+
+        List<ItemEntity> items = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(query,  new String[] {String.valueOf(id)});
+
+        while(cursor.moveToNext()) {
+            ItemEntity item = new ItemEntity();
+
+            item.setId(cursor.getInt(0));
+            item.setUniqueId(cursor.getString(1));
+            item.setPosition(cursor.getString(2));
+            item.setType(cursor.getString(3));
+            item.setActive(cursor.getInt(4) != 0);
+
+            items.add(item);
+        }
+
+        cursor.close();
+        db.close();
+
+        return items;
+    }
+
 }
