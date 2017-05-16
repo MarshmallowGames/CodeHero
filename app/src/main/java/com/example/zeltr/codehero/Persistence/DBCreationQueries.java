@@ -57,10 +57,10 @@ public class DBCreationQueries {
             + "description TEXT, "
             + "FOREIGN KEY(questId) REFERENCES quests(id))";
     public static final String INSERT_TASKS = "INSERT INTO tasks (content, questId, answer, description) "
-            + "VALUES ('public class Main {\n" +
-            "\tpublic static void main(String[] args) {\n" +
-            "\t\tSystem.out.println(\"________\");\t\n" +
-            "\t}\n" +
+            + "VALUES ('public class Main {\\n" +
+            "\\tpublic static void main(String[] args) {\\n" +
+            "\\t\\tSystem.out.println(\"________\");\\n" +
+            "\\t}\\n" +
             "}', 1, 'Task 1 answer', 'Task 1 description'), "
             + " ('Task 2 content', 2, 'Task 2 answer', 'Task 2 description'), "
             + " ('Task 3 content', 3, 'Task 3 answer', 'Task 3 description'), "
