@@ -68,7 +68,8 @@ public class DBCreationQueries {
             + "position TEXT, "
             + "itemType VARCHAR(250))";
     public static final String INSERT_ITEMS = "INSERT INTO items (uniqueId, position, itemType)"
-            + "VALUES ('sword', 'rightHand', 'attack')";
+            + "VALUES ('sword', 'leftHand', 'attack'), ('shield', 'righthand', 'defence'), "
+            + "('armor', 'chest', 'defence')";
 
     public static final String CREATE_USER_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS userItems ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -78,6 +79,6 @@ public class DBCreationQueries {
             + "FOREIGN KEY(userId) REFERENCES user(id)"
             + "FOREIGN KEY(itemId) REFERENCES items(id))";
     public static final String INSERT_USER_ITEMS = "INSERT INTO userItems (userId, itemId, isActive) "
-            + "VALUES (1, 1, 0)";
+            + "VALUES (1, 1, 0), (1, 2, 0), (1, 3, 0)";
 
 }
