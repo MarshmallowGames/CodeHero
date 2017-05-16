@@ -1,12 +1,10 @@
 package com.example.zeltr.codehero;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 
 public class Character extends Activity {
 
@@ -20,36 +18,29 @@ public class Character extends Activity {
         //Hardcoded test before attempting db.
         ImageView left = (ImageView)findViewById(R.id.leftHand);
         ImageView right = (ImageView)findViewById(R.id.rightHand);
+        ImageView character = (ImageView)findViewById(R.id.character);
 
-        if(v.getId() == R.id.sword){
-            left.setImageResource(R.drawable.sword);
-            left.setVisibility(View.VISIBLE);
-        }
-        else if(v.getId() == R.id.shield){
-            right.setImageResource(R.drawable.button_round);
-            right.setVisibility(View.VISIBLE);
-        }
-
-
-
-/*
-        switch(category){
-            case "weapon":
-                View leftHand = findViewById(R.id.leftHand);
+        switch(v.getId()){
+            case R.id.sword:
+                left.setImageResource(R.drawable.sword);
+                left.setVisibility(View.VISIBLE);
                 break;
-            case "offhand":
-                View rightHand = findViewById(R.id.rightHand);
+            case R.id.shield:
+                right.setImageResource(R.drawable.button_round);
+                right.setVisibility(View.VISIBLE);
                 break;
-            case "armor":
-                View character = findViewById(R.id.character);
-
+            case R.id.armor:
+                character.setImageResource(R.drawable.code_hero_logo);
+                break;
         }
-
-*/
-
     }
 
     public void unequipItem(View v){
-        v.setVisibility(View.GONE);
+        if(v.getId() == R.id.character){
+            ImageView character = (ImageView)findViewById(R.id.character);
+            character.setImageResource(R.drawable.boy_character);
+        }else{
+            v.setVisibility(View.GONE);
+        }
     }
 }
