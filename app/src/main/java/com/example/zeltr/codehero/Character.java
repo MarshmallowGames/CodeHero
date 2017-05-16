@@ -3,7 +3,9 @@ package com.example.zeltr.codehero;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class Character extends Activity {
@@ -12,6 +14,14 @@ public class Character extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
+        EditText exp = (EditText)findViewById(R.id.expText);
+        EditText coins = (EditText)findViewById(R.id.coinsText);
+
+        String expInput = "Exp: " + 10;//data from db
+        exp.setText(expInput, TextView.BufferType.EDITABLE);
+
+        String sm = "Coins: " + 20;//Data from db
+        coins.setText(sm, TextView.BufferType.EDITABLE);
     }
 
     public void equipItem(View v){
