@@ -5,19 +5,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.example.zeltr.codehero.Entity.TaskEntity;
 import com.example.zeltr.codehero.Persistence.TaskRepository;
-import com.example.zeltr.codehero.javascript.interfaces.JavascriptInterface;
+import com.example.zeltr.codehero.javascript.interfaces.JavascriptTaskInterface;
 
 public class TaskActivity extends Activity {
 
     private int userId = 0;
     private int taskId = 0;
     private int questId = 0;
+    private WebView webView;
+    private TaskEntity task;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,7 @@ public class TaskActivity extends Activity {
 
         TaskRepository taskRepo = new TaskRepository(this);
 
-        TaskEntity task = taskRepo.fetchTaskById(taskId);
+        this.task = taskRepo.fetchTaskById(taskId);
 
         TextView descriptionView = (TextView) findViewById(R.id.taskDescription);
         TextView contentView = (TextView) findViewById(R.id.taskContent);
@@ -42,12 +45,16 @@ public class TaskActivity extends Activity {
         descriptionView.setText(task.getDescription());
         //contentView.setText(task.getContent());
 
-        WebView webView =(WebView) findViewById(R.id.codeEditor);
-        webView.loadUrl("file:///android_asset/code-editor.html");
-        webView.addJavascriptInterface(new JavascriptInterface(this), "android");
+        this.webView = (WebView) findViewById(R.id.codeEditor);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
+        webView.setWebChromeClient(new WebChromeClient());
+
+        webView.loadUrl("file:///android_asset/code-editor.html");
+
+        this.webView.addJavascriptInterface(new JavascriptTaskInterface(this, this.task), "Task");
     }
 
     public static void start(Context context, int taskId,  int userId, int questId) {
