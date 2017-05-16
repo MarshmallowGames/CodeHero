@@ -28,31 +28,6 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/shield"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/image_border"
-                android:contentDescription="@string/itemDescription"
-                android:onClick="equipItem"
-                android:src="@drawable/button_round" />
-
-            <ImageView
-                android:id="@+id/item2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@drawable/image_border"
-                android:contentDescription="@string/itemDescription"
-                android:onClick="equipItem"
-                android:src="@mipmap/ic_launcher" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipChildren="false">
-
-            <ImageView
                 android:id="@+id/sword"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -62,13 +37,37 @@
                 android:src="@drawable/sword" />
 
             <ImageView
+                android:id="@+id/shield"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/image_border"
+                android:contentDescription="@string/itemDescription"
+                android:onClick="equipItem"
+                android:src="@drawable/shield" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false">
+
+            <ImageView
                 android:id="@+id/armor"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/image_border"
                 android:contentDescription="@string/itemDescription"
                 android:onClick="equipItem"
-                android:src="@drawable/settings_small" />
+                android:src="@drawable/armor" />
+
+            <ImageView
+                android:id="@+id/item4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/image_border"
+                android:contentDescription="@string/itemDescription"
+                android:onClick="equipItem" />
         </TableRow>
 
         <TableRow
@@ -127,6 +126,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="47dp"
         android:contentDescription="@string/character"
+        android:onClick="unequipItem"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -145,7 +145,6 @@
         android:layout_marginTop="195dp"
         android:contentDescription="@string/leftHand"
         android:onClick="unequipItem"
-        android:src="@drawable/stone"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -156,15 +155,14 @@
 
     <ImageView
         android:id="@+id/rightHand"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="47dp"
         android:contentDescription="@string/rightHand"
         android:onClick="unequipItem"
-        android:src="@drawable/stone"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

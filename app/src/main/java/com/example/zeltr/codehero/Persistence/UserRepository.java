@@ -83,4 +83,15 @@ public class UserRepository extends SQLiteOpenHelper {
         return items;
     }
 
+    public void setActive(int id, boolean isActive) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        int active;
+
+        if(isActive) active = 1;
+        else active = 0;
+
+        String query = "UPDATE userItems SET isActive = " + active + " WHERE itemId = " + id;
+        db.execSQL(query);
+        db.close();
+    }
 }
