@@ -34,10 +34,10 @@ public class DBInitializer extends SQLiteOpenHelper {
             db.execSQL(DBCreationQueries.INSERT_TASKS);
 
             db.execSQL(DBCreationQueries.CREATE_ITEMS_TABLE);
+            db.execSQL(DBCreationQueries.INSERT_ITEMS);
 
             db.execSQL(DBCreationQueries.CREATE_USER_ITEMS_TABLE);
-
-            db.execSQL(DBCreationQueries.INSERT_ITEMS);
+            db.execSQL(DBCreationQueries.INSERT_USER_ITEMS);
         }
     }
 
