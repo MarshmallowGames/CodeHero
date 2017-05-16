@@ -77,5 +77,7 @@ public class DBCreationQueries {
             + "isActive BOOLEAN, "
             + "FOREIGN KEY(userId) REFERENCES user(id)"
             + "FOREIGN KEY(itemId) REFERENCES items(id))";
+    public static final String INSERT_USER_ITEMS = "INSERT INTO userItems (userId, itemId, isActive) "
+            + "VALUES (1, 1, 0)";
 
 }
