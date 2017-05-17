@@ -28,9 +28,8 @@ public class DBCreationQueries {
             + "VALUES ('quest one', 1), ('quest two', 1), ('quest three', 1), ('quest four', 1)";
 
     public static final String CREATE_USER_QUESTS_TABLE = "CREATE TABLE IF NOT EXISTS userQuests ("
-            + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "userId INTEGER, "
-            + "questId INTEGER, "
+            + "questId INTEGER PRIMARY KEY, "
             + "worldId INTEGER, "
             + "completed BOOLEAN, "
             + "FOREIGN KEY(userId) REFERENCES users(id), "
@@ -38,7 +37,7 @@ public class DBCreationQueries {
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
 
     public static final String INSERT_USER_QUESTS = "INSERT INTO userQuests (userId, questId, worldId, completed) "
-            + "VALUES (1, 1, 1, 1), (1, 2, 1, 1), (1, 3, 1, 0), (1, 4, 1, 0)";
+            + "VALUES (1, 2, 1, 0), (1, 3, 1, 0), (1, 4, 1, 0)";
 
     public static final String CREATE_TIPS_TABLE = "CREATE TABLE IF NOT EXISTS tips ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
