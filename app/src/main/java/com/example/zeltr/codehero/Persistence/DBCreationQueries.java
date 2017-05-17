@@ -62,14 +62,15 @@ public class DBCreationQueries {
             + "\tpublic static void main(String[] args) {\r\n"
             + "\t\tSystem.out.println(\"________\");\r\n"
             + "\t}\r\n"
-            + "}', 1, 'Task 1 answer', 'Task 1 description'), "
+            + "}', 1, 'public class Main {public static void main(String[] args) {System.out.println(\"Hello farmer\");}}', "
+            + "'Task 1 description'), "
 
 
             + "('public class Main {\r\n"
             + "\tpublic static void main(String[] args) {\r\n"
             + "\t\tString hello \"______\";\r\n"
-            + "\t\tSystem.Out.Println(_______)"
-            + "\t}"
+            + "\t\tSystem.Out.Println(_______)\r\n"
+            + "\t}\r\n"
             + "}', 2, 'public class Main {public static void main(String[] args) {String hello = \"Hello\";System.Out.Println(hello);}}', "
             + "'Task 2 description'), "
 
@@ -79,8 +80,8 @@ public class DBCreationQueries {
             + "\t\tboolean run = true\r\n"
             + "\t\tif(___){\r\n"
             + "\t\t\trun();\r\n"
-            + "\t\t}"
-            + "\t}"
+            + "\t\t}\r\n"
+            + "\t}\r\n"
             + "}', 3, 'public class Main {public static void main(String[] args) {boolean run = true;if(run){run();}}}', "
             + "'Task 3 description'), "
 
@@ -90,7 +91,7 @@ public class DBCreationQueries {
             + "\t\tfor(int i = 0; i < _; i++){\r\n"
             + "\t\t\tslashGoblin();\r\n"
             + "\t\t}\r\n"
-            + "\t}"
+            + "\t}\r\n"
             + "}', 4, 'public class Main {public static void main(String[] args) {for(int i = 0; i < _; i++){slashGoblin();}}}', "
             + "'Task 4 description')";
 
