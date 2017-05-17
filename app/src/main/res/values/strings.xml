@@ -6,4 +6,8 @@
     <string name="mainStory">Efter en lang krig, hvor din far døde efter at have kæmpet bravt, blev et legendarisk sværd
     stjålet af en mystisk wizard. Det siges at sværdet har kræfter nok til at udryde en hel hær på et slag, og du er nu draget afsted
     for at tage sværdet tilbage for at din fars død ikke skal være forgivet.</string>
+    <string name="startQuest">Start Quest</string>
+    <string name="characterBtn">Character</string>
+    <string name="achievements">Achievements</string>
+    <string name="socialize">Socialize</string>
 </resources>
