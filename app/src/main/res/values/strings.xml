@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">CodeHero</string>
     <string name="hej" translatable="false">hej</string>
-    <string name="theRoadStory">På din lange vej mod det ståjlne sværd, møder du en masse landmænd og købmænd på din vej.
-         Bare pas på, for det siges, at de ikke er bange for at svinge et sværd.</string>
-    <string name="mainStory">Efter en lang krig, hvor din far døde efter at have kæmpet bravt, blev et legendarisk sværd
-    stjålet af en mystisk wizard. Det siges at sværdet har kræfter nok til at udryde en hel hær på et slag, og du er nu draget afsted
-    for at tage sværdet tilbage for at din fars død ikke skal være forgivet.</string>
+    <string name="theRoadStory">Your journey towards the sword takes you down a long road.
+        You meet farmers and merchants on their way to the local marketplace.
+        But watch out, these are dangerous times, and knives have an easy time leaving their sockets</string>
+    <string name="mainStory">In a world of magic and wonders, but also war, a legendary sword is the key to peace.
+        Your father died protecting the sword, his valor showed.
+        Tales are told of the sword of old, stolen by a wizard proven to be a lizard.
+        The might of the sword, can rip armies apart.
+        Now you must get back the sword, that your fathers sacrifice was not in vain.</string>
     <string name="startQuest">Start Quest</string>
     <string name="characterBtn">Character</string>
     <string name="achievements">Achievements</string>

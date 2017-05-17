@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CodeHero</string>
-    <string name="character">Karakter</string>
+    <string name="character">Karakter til udstyrsvisning</string>
     <string name="characterBtn">Karakter</string>
-    <string name="coins">Mønter</string>
+    <string name="coins">"Mønter: "</string>
     <string name="itemDescription">Ting i tabel</string>
-    <string name="achievements"></string>
+    <string name="achievements">Opnåelser</string>
     <string name="leftHand">Våbenhånden</string>
     <string name="rightHand">Skjold/sekundært våben</string>
     <string name="socialize">Socialiser</string>
     <string name="startQuest">Start opgave</string>
+    <string name="mainStory">Efter en lang krig, hvor din far døde efter at have kæmpet bravt, blev et legendarisk sværd
+    stjålet af en mystisk wizard. Det siges at sværdet har kræfter nok til at udryde en hel hær på et slag, og du er nu draget afsted
+    for at tage sværdet tilbage for at din fars død ikke skal være forgivet.</string>
+    <string name="theRoadStory">På din lange vej mod det ståjlne sværd, møder du en masse landmænd og købmænd på din vej.
+     Bare pas på, for det siges, at de ikke er bange for at svinge et sværd.</string>
+    <string name="xp">EP: </string>
+
 </resources>
