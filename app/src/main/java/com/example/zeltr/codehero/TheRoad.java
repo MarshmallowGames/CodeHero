@@ -49,9 +49,7 @@ public class TheRoad extends Activity {
         }
     }
 
-    protected void startQuest1(View view){
-        QuestActivity.start(this, 1, 1, 1);
-    }
+    protected void startQuest1(View view) { QuestActivity.start(this, 1, 1, 1); }
 
     protected void startQuest2(View view){
         QuestActivity.start(this, 1, 2, 1);
@@ -61,7 +59,5 @@ public class TheRoad extends Activity {
         QuestActivity.start(this, 1, 3, 1);
     }
 
-    protected void startQuest4(View view){
-        QuestActivity.start(this, 1, 4, 1);
-    }
+    protected void startQuest4(View view) { QuestActivity.start(this, 1, 4, 1); }
 }

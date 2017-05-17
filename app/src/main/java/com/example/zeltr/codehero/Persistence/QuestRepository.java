@@ -95,14 +95,25 @@ public class QuestRepository extends SQLiteOpenHelper {
         return quest;
     }
 
+    public void startUserQuest(int userId, int questId, int worldId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String sql = "INSERT OR REPLACE INTO userQuests VALUES (?, ?, ?, 0)";
+
+        String userIdToBind = String.valueOf(userId);
+        String questIdToBind = String.valueOf(questId);
+        String worldIdToBind = String.valueOf(worldId);
+        db.execSQL(sql, new String[] {userIdToBind, questIdToBind, worldIdToBind});
+    }
+
     public void markAsCompleted(int userId, int questId) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String sql = "INSERT INTO userQuests SET completed = 1 "
+        String sql = "UPDATE userQuests SET completed = 1 "
                 + "WHERE userQuests.userId = ? AND userQuests.questId = ?";
 
         String userIdToBind = String.valueOf(userId);
-        String questIdToBind = String.valueOf(userId);
+        String questIdToBind = String.valueOf(questId);
         db.execSQL(sql, new String[] {userIdToBind, questIdToBind});
     }
 
