@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CodeHero</string>
+    <string name="character">Karakter</string>
+    <string name="characterBtn">Karakter</string>
+    <string name="coins">Mønter</string>
+    <string name="itemDescription">Ting i tabel</string>
+    <string name="achievements"></string>
+    <string name="leftHand">Våbenhånden</string>
+    <string name="rightHand">Skjold/sekundært våben</string>
+    <string name="socialize">Socialiser</string>
+    <string name="startQuest">Start opgave</string>
+</resources>
