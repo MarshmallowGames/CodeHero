@@ -98,12 +98,13 @@ public class Character extends Activity {
         switch(v.getId()){
             case R.id.sword:
                 left.setImageResource(R.drawable.sword);
+                left.setVisibility(View.VISIBLE);
                 swordCheck.setImageResource(R.drawable.checkmark);
-
                 setActive(0, true);
                 break;
             case R.id.shield:
                 right.setImageResource(R.drawable.shield);
+                right.setVisibility(View.VISIBLE);
                 shieldCheck.setImageResource(R.drawable.checkmark);
 
                 setActive(1, true);
@@ -121,12 +122,14 @@ public class Character extends Activity {
         switch(v.getId()){
             case R.id.leftHand:
                 left.setImageDrawable(null);
+                left.setVisibility(View.GONE);
                 swordCheck.setImageDrawable(null);
 
                 setActive(0, false);
                 break;
             case R.id.rightHand:
                 right.setImageDrawable(null);
+                right.setVisibility(View.GONE);
                 shieldCheck.setImageDrawable(null);
 
                 setActive(1, false);
