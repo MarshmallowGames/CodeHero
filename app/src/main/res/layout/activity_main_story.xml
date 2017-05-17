@@ -21,20 +21,20 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:text="@string/mainStory"
-        android:textSize="25sp"
-        android:textColor="#000"
         android:layout_width="286dp"
-        android:layout_height="428dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="58dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/mainStory"
+        android:textColor="#000"
+        android:textSize="25sp"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backgroundPicture"
-        app:layout_constraintHorizontal_bias="0.506" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backgroundPicture" />
 
 </android.support.constraint.ConstraintLayout>
