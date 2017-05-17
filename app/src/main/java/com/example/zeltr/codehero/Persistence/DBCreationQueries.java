@@ -57,14 +57,41 @@ public class DBCreationQueries {
             + "description TEXT, "
             + "FOREIGN KEY(questId) REFERENCES quests(id))";
     public static final String INSERT_TASKS = "INSERT INTO tasks (content, questId, answer, description) "
-            + "VALUES ('public class Main {\r\n" +
-            "\tpublic static void main(String[] args) {\r\n" +
-            "\t\tSystem.out.println(\"________\");\r\n" +
-            "\t}\r\n" +
-            "}', 1, 'Task 1 answer', 'Task 1 description'), "
-            + " ('Task 2 content', 2, 'Task 2 answer', 'Task 2 description'), "
-            + " ('Task 3 content', 3, 'Task 3 answer', 'Task 3 description'), "
-            + " ('Task 4 content', 4, 'Task 4 answer', 'Task 4 description')";
+            + "VALUES "
+
+            + "('public class Main {\r\n"
+            + "\tpublic static void main(String[] args) {\r\n"
+            + "\t\tSystem.out.println(\"________\");\r\n"
+            + "\t}\r\n"
+            + "}', 1, 'Task 1 answer', 'Task 1 description'), "
+
+
+            + "('public class Main {\r\n"
+            + "\tpublic static void main(String[] args) {\r\n"
+            + "\t\tString hello \"______\";\r\n"
+            + "\t\tSystem.Out.Println(_______)"
+            + "\t}"
+            + "}', 2, 'Task 2 answer', 'Task 2 description'), "
+
+
+            + " ('public class Main {\r\n"
+            + "\tpublic static void main(String[] args) {\r\n"
+            + "\t\tboolean run = true\r\n"
+            + "\t\tif(___){\r\n"
+            + "\t\t\trun();\r\n"
+            + "\t\t}"
+            + "\t}"
+            + "}', 3, 'Task 3 answer', 'Task 3 description'), "
+
+
+            + "('public class Main {\r\n"
+            + "\tpublic static void main(String[] args) {\r\n"
+            + "\t\tfor(int i = 0; i < _; i++){\r\n"
+            + "\t\t\tslashGoblin();\r\n"
+            + "\t\t}\r\n"
+            + "\t}"
+            + "}', 4, 'public class Main {public static void main(String[] args) {for(int i = 0; i < _; i++){slashGoblin();}}}', "
+            + "'Task 4 description')";
 
     public static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
