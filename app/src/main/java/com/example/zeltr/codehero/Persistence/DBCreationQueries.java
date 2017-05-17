@@ -92,7 +92,7 @@ public class DBCreationQueries {
             + "\t\t\tslashGoblin();\r\n"
             + "\t\t}\r\n"
             + "\t}\r\n"
-            + "}', 4, 'public class Main {public static void main(String[] args) {for(int i = 0; i < _; i++){slashGoblin();}}}', "
+            + "}', 4, 'public class Main {public static void main(String[] args) {for(int i = 0; i < 9;i++){slashGoblin();}}}', "
             + "'Task 4 description')";
 
     public static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
