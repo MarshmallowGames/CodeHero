@@ -26,7 +26,7 @@ public class BackgroundSoundService extends Service{
 
     public int onStartCommand(Intent intent, int flags, int startId) {
         player.start();
-        return START_STICKY_COMPATIBILITY;
+        return START_NOT_STICKY;
     }
 
     @Override
