@@ -70,7 +70,8 @@ public class DBCreationQueries {
             + "\t\tString hello \"______\";\r\n"
             + "\t\tSystem.Out.Println(_______)"
             + "\t}"
-            + "}', 2, 'Task 2 answer', 'Task 2 description'), "
+            + "}', 2, 'public class Main {public static void main(String[] args) {String hello = \"Hello\";System.Out.Println(hello);}}', "
+            + "'Task 2 description'), "
 
 
             + " ('public class Main {\r\n"
@@ -80,7 +81,8 @@ public class DBCreationQueries {
             + "\t\t\trun();\r\n"
             + "\t\t}"
             + "\t}"
-            + "}', 3, 'Task 3 answer', 'Task 3 description'), "
+            + "}', 3, 'public class Main {public static void main(String[] args) {boolean run = true;if(run){run();}}}', "
+            + "'Task 3 description'), "
 
 
             + "('public class Main {\r\n"
