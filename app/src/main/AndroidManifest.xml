@@ -16,6 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:enabled="true" android:name=".Services.BackgroundSoundService" />
+
         <activity android:name=".TheRoad" />
         <activity android:name=".ChooseWorld" />
         <activity android:name=".Character" />

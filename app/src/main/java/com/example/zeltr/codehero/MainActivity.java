@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.example.zeltr.codehero.Persistence.DBInitializer;
 import com.example.zeltr.codehero.Persistence.TaskRepository;
+import com.example.zeltr.codehero.Services.BackgroundSoundService;
 
 public class MainActivity extends Activity {
 
@@ -15,6 +16,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent svc = new Intent(this, BackgroundSoundService.class);
+        svc.setAction("com.example.BackgroundSoundService");
+        startService(svc);
 
         new DBInitializer(this);
     }
