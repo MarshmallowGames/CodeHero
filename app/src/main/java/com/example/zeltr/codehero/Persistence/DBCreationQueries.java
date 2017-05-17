@@ -25,7 +25,11 @@ public class DBCreationQueries {
             + "worldId INTEGER, "
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
     public static final String INSERT_QUESTS = "INSERT INTO quests (story, worldId) "
-            + "VALUES ('quest one', 1), ('quest two', 1), ('quest three', 1), ('quest four', 1)";
+            + "VALUES ('You walk down a long road. After walking for some time you meet a farmer standing by the road. Greet him by saying “Hello farmer”.', 1), "
+            + "('You continue down the road and reach a little market, you want to greet the merchants one by one when you enter their stand. "
+            + "Greet them with “Hello merchant” but store the string as a variable that can be used multiple times.', 1), "
+            + "('While continuing down the road, you hear a scream. You want to check up on it and want to start running. Run by putting boolean ‘run’ in the if-statement.', 1), "
+            + "('When you arrive to where you hear the scream coming from, you see 3 goblins. The goblins is approaching you, so you pull out your sword. Fill a for loop so it loops 9 times.', 1)";
 
     public static final String CREATE_USER_QUESTS_TABLE = "CREATE TABLE IF NOT EXISTS userQuests ("
             + "questId INTEGER PRIMARY KEY, "
@@ -46,7 +50,10 @@ public class DBCreationQueries {
             + "FOREIGN KEY(questId) REFERENCES quests(id))";
 
     public static final String INSERT_TIPS = "INSERT INTO tips (content, questId) "
-            + "VALUES ('Tip 1', 1), ('Tip 2', 2), ('Tip 3', 3)";
+            + "VALUES ('In Java you can print strings(text) with System.out.println(\"<your text>\");', 1), "
+            + "('Variables in Java are assigned by writing their type, giving them a name and a value.', 2), "
+            + "('If-statements runs if the inserted statement returns true or false.', 3), "
+            + "('In Java a for loop can look like: for(int i=1; i<11; i++)', 4)";
 
     public static final String CREATE_TASKS_TABLE = "CREATE TABLE IF NOT EXISTS tasks ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -63,8 +70,7 @@ public class DBCreationQueries {
             + "\t\tSystem.out.println(\"________\");\r\n"
             + "\t}\r\n"
             + "}', 1, 'public class Main {public static void main(String[] args) {System.out.println(\"Hello farmer\");}}', "
-            + "'Task 1 description'), "
-
+            + "'Task: Print out \"Hello farmer\".'), "
 
             + "('public class Main {\r\n"
             + "\tpublic static void main(String[] args) {\r\n"
@@ -72,8 +78,7 @@ public class DBCreationQueries {
             + "\t\tSystem.Out.Println(_______)\r\n"
             + "\t}\r\n"
             + "}', 2, 'public class Main {public static void main(String[] args) {String hello = \"Hello\";System.Out.Println(hello);}}', "
-            + "'Task 2 description'), "
-
+            + "'Task: Assign \"Hello merchant\" to a String and print out the string.'), "
 
             + " ('public class Main {\r\n"
             + "\tpublic static void main(String[] args) {\r\n"
@@ -83,8 +88,7 @@ public class DBCreationQueries {
             + "\t\t}\r\n"
             + "\t}\r\n"
             + "}', 3, 'public class Main {public static void main(String[] args) {boolean run = true;if(run){run();}}}', "
-            + "'Task 3 description'), "
-
+            + "'Task: Insert the boolean ‘run’ into the if-statement.'), "
 
             + "('public class Main {\r\n"
             + "\tpublic static void main(String[] args) {\r\n"
@@ -93,7 +97,7 @@ public class DBCreationQueries {
             + "\t\t}\r\n"
             + "\t}\r\n"
             + "}', 4, 'public class Main {public static void main(String[] args) {for(int i = 0; i < 9;i++){slashGoblin();}}}', "
-            + "'Task 4 description')";
+            + "'Task: Fill the for loop so it runs 9 times.')";
 
     public static final String CREATE_ITEMS_TABLE = "CREATE TABLE IF NOT EXISTS items ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
