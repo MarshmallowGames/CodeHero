@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".TheRoad" />
-        <activity android:name=".TheRoadQuest1" />
         <activity android:name=".ChooseWorld" />
         <activity android:name=".Character" />
         <activity android:name=".QuestActivity" />
