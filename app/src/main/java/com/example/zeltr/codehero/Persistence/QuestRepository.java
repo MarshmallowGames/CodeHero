@@ -38,10 +38,10 @@ public class QuestRepository extends SQLiteOpenHelper {
         // Add more setters if needed
         while(cursor.moveToNext()) {
             QuestEntity quest = new QuestEntity();
-            quest.setId(cursor.getInt(2));
-            quest.setWorldID(cursor.getInt(3));
+            quest.setId(cursor.getInt(0));
+            quest.setWorldID(cursor.getInt(2));
 
-            int isCompleted = cursor.getInt(4);
+            int isCompleted = cursor.getInt(3);
             if(isCompleted == 1) {
                 quest.setCompleted(true);
             } else {
