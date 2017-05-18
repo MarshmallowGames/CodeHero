@@ -23,13 +23,15 @@ public class DBCreationQueries {
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "story TEXT, "
             + "worldId INTEGER, "
+            + "xp INTEGER, "
+            + "coins INTEGER, "
             + "FOREIGN KEY(worldId) REFERENCES worlds(id))";
-    public static final String INSERT_QUESTS = "INSERT INTO quests (story, worldId) "
-            + "VALUES ('You walk down a long road. After walking for some time you meet a farmer standing by the road. Greet him by saying “Hello farmer”.', 1), "
+    public static final String INSERT_QUESTS = "INSERT INTO quests (story, worldId, xp, coins) "
+            + "VALUES ('You walk down a long road. After walking for some time you meet a farmer standing by the road. Greet him by saying “Hello farmer”.', 1, 5, 1), "
             + "('You continue down the road and reach a little market, you want to greet the merchants one by one when you enter their stand. "
-            + "Greet them with “Hello merchant” but store the string as a variable that can be used multiple times.', 1), "
-            + "('While continuing down the road, you hear a scream. You want to check up on it and want to start running. Run by putting boolean ‘run’ in the if-statement.', 1), "
-            + "('When you arrive to where you hear the scream coming from, you see 3 goblins. The goblins is approaching you, so you pull out your sword. Fill a for loop so it loops 9 times.', 1)";
+            + "Greet them with “Hello merchant” but store the string as a variable that can be used multiple times.', 1, 11, 3), "
+            + "('While continuing down the road, you hear a scream. You want to check up on it and want to start running. Run by putting boolean ‘run’ in the if-statement.', 1, 13, 2), "
+            + "('When you arrive to where you hear the scream coming from, you see 3 goblins. The goblins is approaching you, so you pull out your sword. Fill a for loop so it loops 9 times.', 1, 25, 5)";
 
     public static final String CREATE_USER_QUESTS_TABLE = "CREATE TABLE IF NOT EXISTS userQuests ("
             + "questId INTEGER PRIMARY KEY, "
