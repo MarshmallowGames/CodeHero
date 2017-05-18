@@ -13,4 +13,5 @@
     <string name="characterBtn">Character</string>
     <string name="achievements">Achievements</string>
     <string name="socialize">Socialize</string>
+    <string name="checkBox">A checkbox to show wether or not the item is equipped</string>
 </resources>
