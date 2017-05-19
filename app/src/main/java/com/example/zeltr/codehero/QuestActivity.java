@@ -14,6 +14,7 @@ public class QuestActivity extends Activity {
 
     private int userId = 0;
     private int questId = 0;
+    private QuestEntity quest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class QuestActivity extends Activity {
 
         QuestRepository questRepo = new QuestRepository(this);
 
-        QuestEntity quest = questRepo.fetchQuestById(questId);
+        quest = questRepo.fetchQuestById(questId);
 
         TextView storyView = (TextView) findViewById(R.id.questStory);
         TextView tipView = (TextView) findViewById(R.id.questTip);
@@ -38,12 +39,12 @@ public class QuestActivity extends Activity {
     public static void start(Context context, int worldId, int questId, int userId) {
         Intent intent = new Intent(context, QuestActivity.class);
         intent.putExtra("userId", userId);
-        intent.putExtra("questId", questId);
+        intent.putExtra("quest", questId);
         context.startActivity(intent);
     }
 
     protected void nextButtonOnClick(View view) {
-        TaskActivity.start(this, questId, userId, questId);
+        TaskActivity.start(this, questId, userId, quest);
     }
 
 }

@@ -3,13 +3,14 @@ package com.example.zeltr.codehero;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.TextView;
 
+import com.example.zeltr.codehero.Entity.QuestEntity;
 import com.example.zeltr.codehero.Entity.TaskEntity;
 import com.example.zeltr.codehero.Persistence.TaskRepository;
 import com.example.zeltr.codehero.javascript.interfaces.JavascriptTaskInterface;
@@ -18,7 +19,7 @@ public class TaskActivity extends Activity {
 
     private int userId = 0;
     private int taskId = 0;
-    private int questId = 0;
+    private QuestEntity quest;
     private WebView webView;
     private TaskEntity task;
 
@@ -31,7 +32,7 @@ public class TaskActivity extends Activity {
 
         userId = intent.getIntExtra("userId", 1);
         taskId = intent.getIntExtra("taskId", 1);
-        questId = intent.getIntExtra("questId", 1);
+        quest = (QuestEntity) intent.getSerializableExtra("quest");
 
         TaskRepository taskRepo = new TaskRepository(this);
 
@@ -45,27 +46,28 @@ public class TaskActivity extends Activity {
         descriptionView.setText(task.getDescription());
         //contentView.setText(task.getContent());
 
-        this.webView = (WebView) findViewById(R.id.codeEditor);
+        webView = (WebView) findViewById(R.id.codeEditor);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         webView.setWebChromeClient(new WebChromeClient());
+        webView.setBackgroundColor(Color.TRANSPARENT);
 
         webView.loadUrl("file:///android_asset/code-editor.html");
 
-        this.webView.addJavascriptInterface(new JavascriptTaskInterface(this, this.task), "Task");
+        this.webView.addJavascriptInterface(new JavascriptTaskInterface(this, task, quest, userId), "Task");
     }
 
-    public static void start(Context context, int taskId,  int userId, int questId) {
+    public static void start(Context context, int taskId,  int userId, QuestEntity quest) {
         Intent intent = new Intent(context, TaskActivity.class);
-        intent.putExtra("questId", questId);
+        intent.putExtra("quest", quest);
         intent.putExtra("taskId", taskId);
         intent.putExtra("userId", userId);
         context.startActivity(intent);
     }
 
-    protected void checkCode(View view){
+    protected void validateTask(){
 
     }
 }

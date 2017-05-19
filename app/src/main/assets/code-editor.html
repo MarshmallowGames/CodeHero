@@ -4,7 +4,6 @@
     <title>ACE in Action</title>
     <style type="text/css" media="screen">
     body {
-        background: transparent;
     }
     #editor {
         <!--position: absolute;-->
@@ -12,9 +11,21 @@
         <!--bottom:0-->
         <!--left:10px;-->
         <!--right: 10px;-->
-        padding: 0px 10px;
-        min-width: 200px;
-        min-height: 200px;
+        width: 100%;
+        min-height: 300px;
+        padding-top: 20xp;
+        z-index: 2;
+    }
+    button {
+        background: url("file:///android_res/drawable/button.png");
+        background-size: 100% 100%;
+        float: right;
+        margin-top: 20px;
+        width: auto;
+        border: 0px;
+        box-shadow: 0px;
+        padding: 10px 15px;
+        z-index: 1;
     }
 </style>
 </head>
@@ -22,7 +33,9 @@
 
 <div id="editor"></div>
 
-<script type="text/javascript" src="js/ace/src-min/ace.js"/>
+<button id="checkCodeButton">Check code</button>
+
+<script type="text/javascript" src="js/ace/src-min-noconflict/ace.js"/>
 
 <script type="text/javascript">
     window.onerror = function (message, url, lineNo){
@@ -34,13 +47,29 @@
 <script>
     var editor, session;
         editor = ace.edit("editor");
-        editor.setTheme("ace/theme/monokai");
+        editor.setTheme("ace/theme/github");
 
         session = editor.session
         session.setNewLineMode("unix")
         session.setMode("ace/mode/java");
 
         editor.setValue(Task.getContent());
+
+        editor.container.style.lineHeight = 2
+        editor.renderer.updateFontSize();
+
+        editor.setOptions({
+            enableBasicAutocompletion: true
+        });
+
+        function validateTask(answer) {
+            Task.validateTask(answer);
+        }
+
+        var chkCodeBtn = document.getElementById("checkCodeButton");
+        chkCodeBtn.addEventListener("click", function() {
+            validateTask(editor.getValue());
+        }, false);
 </script>
 </body>
 </html>

@@ -59,7 +59,7 @@ public class QuestRepository extends SQLiteOpenHelper {
 
     public QuestEntity fetchQuestById(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String sql = "SELECT quests.id, quests.story, quests.worldId, IFNULL(userQuests.completed, 0) FROM quests, userQuests " +
+        String sql = "SELECT quests.id, quests.story, quests.worldId, quests.xp, quests.coins, IFNULL(userQuests.completed, 0) FROM quests, userQuests " +
                 " WHERE quests.id = ? AND userQuests.questId = ?";
 
         String idToBind = String.valueOf(id);
@@ -71,7 +71,9 @@ public class QuestRepository extends SQLiteOpenHelper {
         quest.setId(cursor.getInt(0));
         quest.setStory(cursor.getString(1));
         quest.setWorldID(cursor.getInt(2));
-        quest.setCompleted(cursor.getInt(3) != 0);
+        quest.setXp(cursor.getInt(3));
+        quest.setCoins(cursor.getInt(4));
+        quest.setCompleted(cursor.getInt(5) != 0);
 
         String tipsSql = "SELECT * FROM tips "
                 + "WHERE tips.questId = ?";

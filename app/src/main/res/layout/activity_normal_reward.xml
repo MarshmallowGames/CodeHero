@@ -44,10 +44,10 @@
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/coinsText" />
+        app:layout_constraintTop_toBottomOf="@+id/coins" />
 
-    <EditText
-        android:id="@+id/expText"
+    <TextView
+        android:id="@+id/xp"
         android:layout_width="253dp"
         android:layout_height="64dp"
         android:layout_marginLeft="8dp"
@@ -61,15 +61,14 @@
         android:focusableInTouchMode="false"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="@string/xp"
         android:textSize="14sp"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtComplete" />
 
-    <EditText
-        android:id="@+id/coinsText"
+    <TextView
+        android:id="@+id/coins"
         android:layout_width="253dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
@@ -84,13 +83,12 @@
         android:focusableInTouchMode="false"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="@string/coins"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expText"
+        app:layout_constraintTop_toBottomOf="@+id/xp"
         app:layout_constraintVertical_bias="0.057" />
 
 </android.support.constraint.ConstraintLayout>

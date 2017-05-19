@@ -1,6 +1,8 @@
 package com.example.zeltr.codehero.Entity;
 
-public class TipEntity {
+import java.io.Serializable;
+
+public class TipEntity implements Serializable {
 
     private int id;
     private String content;

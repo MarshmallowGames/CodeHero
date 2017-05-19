@@ -1,14 +1,19 @@
 package com.example.zeltr.codehero.Entity;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class QuestEntity {
+public class QuestEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int id;
     private String story;
     private int worldID;
     private boolean completed;
     private List<TipEntity> tips;
+    private int xp;
+    private int coins;
 
     public int getId() {
         return id;
@@ -37,6 +42,14 @@ public class QuestEntity {
     public List<TipEntity> getTips() { return tips; }
 
     public void setTips(List<TipEntity> tips) { this.tips = tips; }
+
+    public int getXp() {return xp;}
+
+    public void setXp(int xp) {this.xp = xp;}
+
+    public int getCoins() {return coins;}
+
+    public void setCoins(int coins) {this.coins = coins;}
 
     @Override
     public String toString() {

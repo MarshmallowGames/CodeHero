@@ -42,7 +42,12 @@ public class TaskEntity {
 
     public void setAnswer(String answer) { this.answer = answer; }
 
-    public boolean isSolved(String input) { return answer.equalsIgnoreCase(input); }
+    public boolean isSolved(String input) {
+        return normalize(answer).equalsIgnoreCase(normalize(input)); }
+
+    private String normalize(String input) {
+        return input.replaceAll("\t", "").replaceAll("\r\n", "").replaceAll("\n", "").replaceAll(" ", "");
+    }
 
     @Override
     public String toString() {
