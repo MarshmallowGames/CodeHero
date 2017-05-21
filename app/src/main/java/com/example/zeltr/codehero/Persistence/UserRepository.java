@@ -94,4 +94,22 @@ public class UserRepository extends SQLiteOpenHelper {
         db.execSQL(query);
         db.close();
     }
+
+    public void insertUserItems(int userId, int itemId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sql = "INSERT INTO userItems (userId, itemId) VALUES (?, ?)";
+        db.execSQL(sql, new String[] {String.valueOf(userId), String.valueOf(itemId)});
+
+        db.close();
+    }
+
+    public void insertUserRewards(int userId, int xp, int coins) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String sql = "UPDATE users SET exp = exp + ?, coins = coins + ? WHERE id = ?";
+        db.execSQL(sql, new String[] {String.valueOf(xp), String.valueOf(coins), String.valueOf(userId)});
+
+        db.close();
+    }
 }

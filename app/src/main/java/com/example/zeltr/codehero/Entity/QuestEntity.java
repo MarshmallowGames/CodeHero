@@ -14,6 +14,7 @@ public class QuestEntity implements Serializable {
     private List<TipEntity> tips;
     private int xp;
     private int coins;
+    private int itemId;
 
     public int getId() {
         return id;
@@ -21,6 +22,14 @@ public class QuestEntity implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     public String getStory() { return story;}

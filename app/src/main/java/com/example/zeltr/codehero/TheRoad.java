@@ -1,7 +1,10 @@
 package com.example.zeltr.codehero;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -9,6 +12,8 @@ import android.widget.ImageView;
 import com.example.zeltr.codehero.Entity.QuestEntity;
 import com.example.zeltr.codehero.Persistence.QuestRepository;
 
+import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 public class TheRoad extends Activity {
@@ -47,6 +52,12 @@ public class TheRoad extends Activity {
                 }
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ChooseWorld.class);
+        startActivity(intent);
     }
 
     protected void startQuest1(View view) { QuestActivity.start(this, 1, 1, 1); }

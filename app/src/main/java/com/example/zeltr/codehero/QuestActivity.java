@@ -38,8 +38,9 @@ public class QuestActivity extends Activity {
 
     public static void start(Context context, int worldId, int questId, int userId) {
         Intent intent = new Intent(context, QuestActivity.class);
+        intent.putExtra("worldId", worldId);
         intent.putExtra("userId", userId);
-        intent.putExtra("quest", questId);
+        intent.putExtra("questId", questId);
         context.startActivity(intent);
     }
 

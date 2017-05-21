@@ -55,4 +55,11 @@ public class ChooseWorld extends Activity {
         Intent intent = new Intent(this, Character.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
 }

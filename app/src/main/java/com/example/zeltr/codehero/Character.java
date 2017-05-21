@@ -34,12 +34,12 @@ public class Character extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character);
 
-        EditText exp = (EditText)findViewById(R.id.expText);
-        EditText coins = (EditText)findViewById(R.id.coinsText);
+        EditText exp = (EditText) findViewById(R.id.expText);
+        EditText coins = (EditText) findViewById(R.id.coinsText);
 
-        left = (ImageView)findViewById(R.id.leftHand);
-        right = (ImageView)findViewById(R.id.rightHand);
-        character = (ImageView)findViewById(R.id.character);
+        left = (ImageView) findViewById(R.id.leftHand);
+        right = (ImageView) findViewById(R.id.rightHand);
+        character = (ImageView) findViewById(R.id.character);
         swordImg = (ImageView) findViewById(R.id.sword);
         shieldImg = (ImageView) findViewById(R.id.shield);
         armorImg = (ImageView) findViewById(R.id.armor);
@@ -47,41 +47,59 @@ public class Character extends Activity {
         swordCheck = (ImageView) findViewById(R.id.swordCheck);
         armorCheck = (ImageView) findViewById(R.id.armorCheck);
 
+        swordImg.setEnabled(false);
+        armorImg.setEnabled(false);
+        shieldImg.setEnabled(false);
+        swordCheck.setEnabled(false);
+        armorImg.setEnabled(false);
+        shieldCheck.setEnabled(false);
+
         UserRepository ur = new UserRepository(this);
         items = ur.fetchUserItemsById(1);
 
-        for(int i = 0; i < items.size(); i++) {
-            switch(items.get(i).getUniqueId()) {
-                case "sword":
-                    swordImg.setImageResource(R.drawable.sword);
+        if (items != null) {
+            for (int i = 0; i < items.size(); i++) {
+                switch (items.get(i).getUniqueId()) {
+                    case "sword":
+                        swordImg.setImageResource(R.drawable.sword);
+                        swordImg.setEnabled(true);
+                        swordCheck.setVisibility(View.VISIBLE);
+                        swordCheck.setEnabled(true);
 
-                    if(items.get(i).isActive()){
-                        left.setImageResource(R.drawable.sword);
+                        if (items.get(i).isActive()) {
+                            left.setImageResource(R.drawable.sword);
 
-                        ImageView swordCheck = (ImageView) findViewById(R.id.swordCheck);
-                        swordCheck.setImageResource(R.drawable.checkmark);
-                    }
-                    break;
-                case "shield":
-                    shieldImg.setImageResource(R.drawable.shield);
+                            ImageView swordCheck = (ImageView) findViewById(R.id.swordCheck);
+                            swordCheck.setImageResource(R.drawable.checkmark);
+                        }
+                        break;
+                    case "shield":
+                        shieldImg.setImageResource(R.drawable.shield);
+                        shieldImg.setEnabled(true);
+                        shieldCheck.setVisibility(View.VISIBLE);
+                        shieldCheck.setEnabled(true);
 
-                    if(items.get(i).isActive()){
-                        right.setImageResource(R.drawable.shield);
+                        if (items.get(i).isActive()) {
+                            right.setImageResource(R.drawable.shield);
 
-                        shieldCheck.setImageResource(R.drawable.checkmark);
-                    }
-                    break;
-                case "armor":
-                    armorImg.setImageResource(R.drawable.armor);
+                            shieldCheck.setImageResource(R.drawable.checkmark);
+                        }
+                        break;
+                    case "armor":
+                        armorImg.setImageResource(R.drawable.armor);
+                        armorImg.setEnabled(true);
+                        armorCheck.setVisibility(View.VISIBLE);
+                        armorCheck.setEnabled(true);
 
-                    if(items.get(i).isActive()){
-                        character.setImageResource(R.drawable.boy_character_armor);
+                        if (items.get(i).isActive()) {
+                            character.setImageResource(R.drawable.boy_character_armor);
 
-                        armorCheck.setImageResource(R.drawable.checkmark);
-                    } else {
-                        character.setImageResource(R.drawable.boy_character);
-                    }
-                    break;
+                            armorCheck.setImageResource(R.drawable.checkmark);
+                        } else {
+                            character.setImageResource(R.drawable.boy_character);
+                        }
+                        break;
+                }
             }
         }
 
@@ -94,8 +112,8 @@ public class Character extends Activity {
         coins.setText(sm, TextView.BufferType.EDITABLE);
     }
 
-    public void equipItem(View v){
-        switch(v.getId()){
+    public void equipItem(View v) {
+        switch (v.getId()) {
             case R.id.sword:
                 left.setImageResource(R.drawable.sword);
                 left.setVisibility(View.VISIBLE);
@@ -118,8 +136,8 @@ public class Character extends Activity {
         }
     }
 
-    public void unequipItem(View v){
-        switch(v.getId()){
+    public void unequipItem(View v) {
+        switch (v.getId()) {
             case R.id.leftHand:
                 left.setImageDrawable(null);
                 left.setVisibility(View.GONE);

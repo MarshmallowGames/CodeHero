@@ -23,6 +23,8 @@ public class DBInitializer extends SQLiteOpenHelper {
 
             db.execSQL(DBCreationQueries.CREATE_QUEST_TABLE);
             db.execSQL(DBCreationQueries.INSERT_QUESTS);
+            db.execSQL(DBCreationQueries.INSERT_QUESTS_WITHOUT_ITEM);
+            db.execSQL(DBCreationQueries.INSERT_REST_OF_QUESTS);
 
             db.execSQL(DBCreationQueries.CREATE_USER_QUESTS_TABLE);
             db.execSQL(DBCreationQueries.INSERT_USER_QUESTS);
@@ -37,7 +39,7 @@ public class DBInitializer extends SQLiteOpenHelper {
             db.execSQL(DBCreationQueries.INSERT_ITEMS);
 
             db.execSQL(DBCreationQueries.CREATE_USER_ITEMS_TABLE);
-            db.execSQL(DBCreationQueries.INSERT_USER_ITEMS);
+            //db.execSQL(DBCreationQueries.INSERT_USER_ITEMS);
         }
     }
 

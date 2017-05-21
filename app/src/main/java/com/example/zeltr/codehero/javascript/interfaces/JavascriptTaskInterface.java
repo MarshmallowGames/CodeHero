@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.zeltr.codehero.Entity.QuestEntity;
 import com.example.zeltr.codehero.Entity.TaskEntity;
 import com.example.zeltr.codehero.ItemReward;
+import com.example.zeltr.codehero.NormalReward;
 import com.example.zeltr.codehero.Persistence.QuestRepository;
 import com.example.zeltr.codehero.utils.ActivityUtils;
 
@@ -33,9 +34,14 @@ public class JavascriptTaskInterface {
         if (task.isSolved(answer)) {
             QuestRepository questRepo = new QuestRepository(context);
             questRepo.markAsCompleted(userId, quest.getId());
-            ItemReward.start(context, quest);
-        }
-        else
+
+            if(quest.getItemId() != 0){
+                ItemReward.start(context, quest, userId);
+            } else {
+                NormalReward.start(context, quest, userId);
+            }
+        } else {
             ActivityUtils.initiatePopupWindow(context, "Wrong answer, please try again.");
+        }
     }
 }
