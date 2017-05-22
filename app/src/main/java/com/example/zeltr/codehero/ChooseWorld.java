@@ -28,6 +28,10 @@ public class ChooseWorld extends Activity {
        }
     }
 
+    protected void settingsClicked(View view) {
+        Toast.makeText(this, "This function is not yet available", Toast.LENGTH_SHORT).show();
+    }
+
     protected void readTheRoadStory(View view){
         Intent intent = new Intent(this, TheRoadStory.class);
         startActivity(intent);

@@ -23,6 +23,10 @@ public class MainActivity extends Activity {
         new DBInitializer(this);
     }
 
+    protected void settingsClicked(View view) {
+        Toast.makeText(this, "This function is not yet available", Toast.LENGTH_SHORT).show();
+    }
+
     protected void readStory(View view) {
         Intent intent = new Intent(this, MainStory.class);
         startActivity(intent);
